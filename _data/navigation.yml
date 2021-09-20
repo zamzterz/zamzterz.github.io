@@ -1,0 +1,5 @@
+main:
+  - title: "Text"
+    url: /text
+  - title: "Tech"
+    url: /tech
