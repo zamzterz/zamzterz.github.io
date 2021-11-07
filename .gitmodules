@@ -1,0 +1,3 @@
+[submodule "moving-poetry"]
+	path = moving-poetry
+	url = git@github.com:zamzterz/moving-poetry.git

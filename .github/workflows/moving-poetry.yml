@@ -1,0 +1,38 @@
+name: Moving poetry build
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'moving-poetry/**'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'moving-poetry/**'
+
+defaults:
+  run:
+    working-directory: moving-poetry
+
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    
+    steps:
+      - uses: actions/checkout@v2
+        submodules: true
+      - uses: actions/setup-node@v2
+        with:
+          cache: 'npm'
+      - name: Install
+        run: npm install
+      - name: Build
+        run: npm run build -- --public-url ./ --dist-dir dist/
+      - name: GitHub Pages action
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.ref == 'refs/heads/main' }}
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./moving-poetry/dist
+          destination_dir: moving-poetry
