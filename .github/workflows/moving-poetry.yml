@@ -4,11 +4,11 @@ on:
   push:
     branches: [ main ]
     paths:
-      - 'moving-poetry/**'
+      - 'moving-poetry'
   pull_request:
     branches: [ main ]
     paths:
-      - 'moving-poetry/**'
+      - 'moving-poetry'
 
 defaults:
   run:
@@ -21,10 +21,13 @@ jobs:
     
     steps:
       - uses: actions/checkout@v2
-        submodules: true
+        with:
+          submodules: true
+          token: ${{ secrets.REPO_PAT }}
       - uses: actions/setup-node@v2
         with:
           cache: 'npm'
+          cache-dependency-path: moving-poetry/package-lock.json
       - name: Install
         run: npm install
       - name: Build
