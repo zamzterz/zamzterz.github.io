@@ -4,11 +4,11 @@ on:
   push:
     branches: [ main ]
     paths-ignore:
-      - 'moving-poetry/**'
+      - 'moving-poetry'
   pull_request:
     branches: [ main ]
     paths-ignore:
-      - 'moving-poetry/**'
+      - 'moving-poetry'
 
 jobs:
   build:
