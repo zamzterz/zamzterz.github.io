@@ -19,13 +19,13 @@ jobs:
     - uses: actions/setup-node@v2
       with:
         cache: 'npm'
-        cache-dependency-path: moving-poetry/package-lock.json
+        cache-dependency-path: moving-poetry-source/package-lock.json
     - name: Install deps for 'Moving poetry'
       run: npm install
-      working-directory: moving-poetry
+      working-directory: moving-poetry-source
     - name: Build 'Moving poetry'
-      run: npm run build -- --public-url ./ --dist-dir dist/
-      working-directory: moving-poetry
+      run: npm run build -- --public-url ./ --dist-dir ../moving-poetry
+      working-directory: moving-poetry-source
 
     - name: Build the site in the jekyll/builder container
       run: |
