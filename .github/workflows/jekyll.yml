@@ -3,12 +3,8 @@ name: Jekyll site CI
 on:
   push:
     branches: [ main ]
-    paths-ignore:
-      - 'moving-poetry'
   pull_request:
     branches: [ main ]
-    paths-ignore:
-      - 'moving-poetry'
 
 jobs:
   build:
@@ -16,6 +12,21 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      with:
+        submodules: true
+        token: ${{ secrets.REPO_PAT }}
+
+    - uses: actions/setup-node@v2
+      with:
+        cache: 'npm'
+        cache-dependency-path: moving-poetry/package-lock.json
+    - name: Install deps for 'Moving poetry'
+      run: npm install
+      working-directory: moving-poetry
+    - name: Build 'Moving poetry'
+      run: npm run build -- --public-url ./ --dist-dir dist/
+      working-directory: moving-poetry
+
     - name: Build the site in the jekyll/builder container
       run: |
         docker run \
