@@ -27,6 +27,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           cache: 'npm'
+          cache-dependency-path: moving-poetry/package-lock.json
       - name: Install
         run: npm install
       - name: Build
