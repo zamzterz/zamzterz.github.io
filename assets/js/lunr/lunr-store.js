@@ -10,4 +10,10 @@ var store = [{
         "tags": [],
         "url": "/text/2021/09/15/n%C3%A4r-natten-tynger.html",
         "teaser": null
+      },{
+        "title": "Moving poetry: Skogsvandring",
+        "excerpt":"Saker som rör sig i ögonvrån, uppstår och försvinner - mystiskt och spännande. Det finns ingen rätt väg, bara förslag på stigar genom bokstäver, ord och rader. Så gå på upptäcktsfärd, precis som i skogen: Moving poetry: Skogsvandring “Moving poetry: Skogsvandring” utforskar dynamisk poesi. Omkastade rader, anagram och andra konstruktioner...","categories": ["text"],
+        "tags": [],
+        "url": "/text/2021/11/10/moving-poetry-skogsvandring.html",
+        "teaser": null
       }]
