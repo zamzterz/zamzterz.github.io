@@ -1,4 +1,102 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2021-11-10T15:50:47+01:00</updated><id>/feed.xml</id><title type="html">Samuel Gulliksson</title><entry><title type="html">Moving poetry: Skogsvandring</title><link href="/text/2021/11/10/moving-poetry-skogsvandring.html" rel="alternate" type="text/html" title="Moving poetry: Skogsvandring" /><published>2021-11-10T00:00:00+01:00</published><updated>2021-11-10T00:00:00+01:00</updated><id>/text/2021/11/10/moving-poetry-skogsvandring</id><content type="html" xml:base="/text/2021/11/10/moving-poetry-skogsvandring.html">&lt;p&gt;Saker som rör sig i ögonvrån, uppstår och försvinner - mystiskt och spännande. 
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2021-12-01T08:06:58+01:00</updated><id>/feed.xml</id><title type="html">Samuel Gulliksson</title><entry><title type="html">Moving poetry: Behind the scenes</title><link href="/tech/2021/12/01/moving-poetry.html" rel="alternate" type="text/html" title="Moving poetry: Behind the scenes" /><published>2021-12-01T00:00:00+01:00</published><updated>2021-12-01T00:00:00+01:00</updated><id>/tech/2021/12/01/moving-poetry</id><content type="html" xml:base="/tech/2021/12/01/moving-poetry.html">&lt;p&gt;The &lt;a href=&quot;/text/2021/11/10/moving-poetry-skogsvandring.html&quot;&gt;“Moving poetry” project&lt;/a&gt; (Swedish only) was an exploration of text and technology.
+This post describes some of the nifty Javascript (and CSS) tricks used to build it.&lt;/p&gt;
+
+&lt;h2 id=&quot;web-animations-api&quot;&gt;Web Animations API&lt;/h2&gt;
+
+&lt;p&gt;The entire project revolves around the “new”
+&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API&quot;&gt;Web Animations API&lt;/a&gt;,
+available in modern browsers.
+As the name suggests, the API makes it possible to animate DOM elements.
+All properties of an element which can be animated are listed
+&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Animations are defined as a
+&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/KeyframeEffect/KeyframeEffect&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;KeyframeEffect&lt;/code&gt;&lt;/a&gt;,
+which consists of two parts: the 
+&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API/Keyframe_Formats&quot;&gt;keyframes&lt;/a&gt;
+describing the transitions of the animation,
+and the options controlling the animations behavior.&lt;/p&gt;
+
+&lt;p&gt;Below some examples are shown of what effects can be achieved when animating text elements
+(all but the font size animation can of course be applied to any type of element).&lt;/p&gt;
+
+&lt;h3 id=&quot;opacity&quot;&gt;Opacity&lt;/h3&gt;
+
+&lt;p&gt;To make an element fade in and/or out, the opacity can be animated.&lt;/p&gt;
+&lt;iframe src=&quot;/code-examples/index.html?url=/code-examples/2021-12-01-moving-poetry/opacity/basic&quot; loading=&quot;lazy&quot; width=&quot;100%&quot; height=&quot;250&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Notice the difference when pressing the cancel or finish button:
+&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Animation/cancel&quot;&gt;cancelling an animation&lt;/a&gt;
+will remove any applied effects (returning the element to its starting state)
+while
+&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Animation/finish&quot;&gt;finishing an animation&lt;/a&gt;
+will set the current playback time to the end of the animation, which combined with the animation option &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fill: 'forwards'&lt;/code&gt; puts the element in its final animated state.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Safari bug:&lt;/strong&gt; When animating the opacity it seems Safari does some strange things.
+In below example (Safari only, reproducible at least in version &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;14.1.2&lt;/code&gt;, even though it seems like an
+&lt;a href=&quot;https://stackoverflow.com/a/10935121&quot;&gt;old issue&lt;/a&gt;)
+the top two lines fade out even though only the first line has its opacity animated.
+The third line only stays visible since it has &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;opacity: 1&lt;/code&gt; applied by CSS.&lt;/p&gt;
+&lt;iframe src=&quot;/code-examples/index.html?url=/code-examples/2021-12-01-moving-poetry/opacity/safari-fix&quot; loading=&quot;lazy&quot; width=&quot;100%&quot; height=&quot;250&quot;&gt;&lt;/iframe&gt;
+
+&lt;h3 id=&quot;font-size&quot;&gt;Font size&lt;/h3&gt;
+
+&lt;p&gt;By animating the font size, text can be made to smoothly disappear or appear:&lt;/p&gt;
+&lt;iframe src=&quot;/code-examples/index.html?url=/code-examples/2021-12-01-moving-poetry/fontsize/basic&quot; loading=&quot;lazy&quot; width=&quot;100%&quot; height=&quot;250&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;A small problem, illustrated by the red border in above example, is that the element itself is still rendered.
+This can be fixed by using
+&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Animation/onfinish&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Animation.onfinish&lt;/code&gt;&lt;/a&gt; 
+to apply a CSS class hiding the element.&lt;/p&gt;
+&lt;iframe src=&quot;/code-examples/index.html?url=/code-examples/2021-12-01-moving-poetry/fontsize/improved&quot; loading=&quot;lazy&quot; width=&quot;100%&quot; height=&quot;250&quot;&gt;&lt;/iframe&gt;
+
+&lt;h3 id=&quot;translation&quot;&gt;Translation&lt;/h3&gt;
+
+&lt;p&gt;The movement of elements can also be animated.&lt;/p&gt;
+&lt;iframe src=&quot;/code-examples/index.html?url=/code-examples/2021-12-01-moving-poetry/translation/basic&quot; loading=&quot;lazy&quot; width=&quot;100%&quot; height=&quot;250&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Using the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cubic-bezier&lt;/code&gt; function to control the timing of the animation
+allows some really cool patterns to emerge while still using the same simple keyframes.
+&lt;a href=&quot;https://css-tricks.com/advanced-css-animation-using-cubic-bezier/&quot;&gt;CSS-Tricks&lt;/a&gt;
+has further examples with explanations.
+To experiment with finding the perfect curve you can use &lt;a href=&quot;https://cubic-bezier.com&quot;&gt;cubic-bezier.com&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;When there is a single keyframe specified, the browser will interpret it as the end state and
+&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API/Keyframe_Formats#implicit_tofrom_keyframes&quot;&gt;try to infer the starting state&lt;/a&gt;.
+Hence, when chaining animations with more than one keyframe it’s necessary to make sure they are still starting from their current state.
+This can be done using
+&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;getComputedStyle&lt;/code&gt;&lt;/a&gt; to get the current transform of the element.
+Otherwise the result will look very jumpy, as can be seen in the below example: the “Relative” text element moves along a smooth square (split into two separate animations),
+while the “Basic” text elements jumps between positions.&lt;/p&gt;
+&lt;iframe src=&quot;/code-examples/index.html?url=/code-examples/2021-12-01-moving-poetry/translation/relative-chaining&quot; loading=&quot;lazy&quot; width=&quot;100%&quot; height=&quot;250&quot;&gt;&lt;/iframe&gt;
+
+&lt;h3 id=&quot;rotation&quot;&gt;Rotation&lt;/h3&gt;
+
+&lt;p&gt;Similarly, the rotation of elements can be animated.
+By moving the
+&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;transform-origin&lt;/code&gt;&lt;/a&gt;,
+the element can be rotated around different points.&lt;/p&gt;
+&lt;iframe src=&quot;/code-examples/index.html?url=/code-examples/2021-12-01-moving-poetry/rotation/basic&quot; loading=&quot;lazy&quot; width=&quot;100%&quot; height=&quot;250&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;By combining animations more complex effects can be achieved.
+In the following example an element containing a child element is rotated,
+before the child element itself is transformed.&lt;/p&gt;
+&lt;iframe src=&quot;/code-examples/index.html?url=/code-examples/2021-12-01-moving-poetry/rotation/complex&quot; loading=&quot;lazy&quot; width=&quot;100%&quot; height=&quot;250&quot;&gt;&lt;/iframe&gt;
+
+&lt;h2 id=&quot;responsiveness&quot;&gt;Responsiveness&lt;/h2&gt;
+
+&lt;p&gt;To make sure animations are responsive, and working nicely on smaller screens as well, there are some tricks that can help:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Use relative length units for all the things, including animated translations. Especially if you’re using
+&lt;a href=&quot;https://css-tricks.com/snippets/css/fluid-typography/&quot;&gt;fluid typography&lt;/a&gt; the text animations will scale nicely.&lt;/li&gt;
+  &lt;li&gt;CSS functions and variables can be used when specifying the animation keyframes. It’s totally legal to specify something like
+    &lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;translateX(calc(var(--font-size) * 5))&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;If you really need to customize the animations based on for example screen size,
+&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries&quot;&gt;media queries&lt;/a&gt; can be used in Javascript via 
+&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia&quot;&gt;matchMedia&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Samuel Gulliksson</name></author><category term="tech" /><summary type="html">The “Moving poetry” project (Swedish only) was an exploration of text and technology. This post describes some of the nifty Javascript (and CSS) tricks used to build it.</summary></entry><entry><title type="html">Moving poetry: Skogsvandring</title><link href="/text/2021/11/10/moving-poetry-skogsvandring.html" rel="alternate" type="text/html" title="Moving poetry: Skogsvandring" /><published>2021-11-10T00:00:00+01:00</published><updated>2021-11-10T00:00:00+01:00</updated><id>/text/2021/11/10/moving-poetry-skogsvandring</id><content type="html" xml:base="/text/2021/11/10/moving-poetry-skogsvandring.html">&lt;p&gt;Saker som rör sig i ögonvrån, uppstår och försvinner - mystiskt och spännande. 
 Det finns ingen rätt väg, bara förslag på stigar genom bokstäver, ord och rader.
 Så gå på upptäcktsfärd, precis som i skogen: &lt;a href=&quot;/moving-poetry&quot;&gt;Moving poetry: Skogsvandring&lt;/a&gt;&lt;/p&gt;
 
@@ -6,7 +104,11 @@ Så gå på upptäcktsfärd, precis som i skogen: &lt;a href=&quot;/moving-poetr
 Omkastade rader, anagram och andra konstruktioner utmanar idén om att text behöver läsas enligt sin struktur på den tryckta sidan.
 I skärningspunkten mellan text och konst får betraktaren istället själv välja sin egen läsning.&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;small&gt;(För bästa upplevelse använd en uppdaterad webbläsare och landskapsläge på mindre enheter.)&lt;/small&gt;&lt;/p&gt;</content><author><name>Samuel Gulliksson</name></author><category term="text" /><summary type="html">Saker som rör sig i ögonvrån, uppstår och försvinner - mystiskt och spännande. Det finns ingen rätt väg, bara förslag på stigar genom bokstäver, ord och rader. Så gå på upptäcktsfärd, precis som i skogen: Moving poetry: Skogsvandring</summary></entry><entry><title type="html">När natten tynger</title><link href="/text/2021/09/15/n%C3%A4r-natten-tynger.html" rel="alternate" type="text/html" title="När natten tynger" /><published>2021-09-15T00:00:00+02:00</published><updated>2021-09-15T00:00:00+02:00</updated><id>/text/2021/09/15/n%C3%A4r-natten-tynger</id><content type="html" xml:base="/text/2021/09/15/n%C3%A4r-natten-tynger.html">&lt;p&gt;När natten tynger &lt;br /&gt;
+&lt;p&gt;&lt;small&gt;
+För bästa upplevelse använd en uppdaterad webbläsare och landskapsläge på mindre enheter.
+En beskrivning av tekniken som använts för att skapa detta finns
+&lt;a href=&quot;/tech/2021/12/01/moving-poetry.html&quot;&gt;här&lt;/a&gt; (på engelska).
+&lt;/small&gt;&lt;/p&gt;</content><author><name>Samuel Gulliksson</name></author><category term="text" /><summary type="html">Saker som rör sig i ögonvrån, uppstår och försvinner - mystiskt och spännande. Det finns ingen rätt väg, bara förslag på stigar genom bokstäver, ord och rader. Så gå på upptäcktsfärd, precis som i skogen: Moving poetry: Skogsvandring</summary></entry><entry><title type="html">När natten tynger</title><link href="/text/2021/09/15/n%C3%A4r-natten-tynger.html" rel="alternate" type="text/html" title="När natten tynger" /><published>2021-09-15T00:00:00+02:00</published><updated>2021-09-15T00:00:00+02:00</updated><id>/text/2021/09/15/n%C3%A4r-natten-tynger</id><content type="html" xml:base="/text/2021/09/15/n%C3%A4r-natten-tynger.html">&lt;p&gt;När natten tynger &lt;br /&gt;
 lättar mörkret ankar. &lt;br /&gt;
 En storm genom allt som är &lt;br /&gt;
 jag sliter i alla trasiga trådar &lt;br /&gt;

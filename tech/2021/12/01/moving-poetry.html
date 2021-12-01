@@ -1,0 +1,343 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Moving poetry: Behind the scenes - Samuel Gulliksson</title>
+<meta name="description" content="The “Moving poetry” project (Swedish only) was an exploration of text and technology. This post describes some of the nifty Javascript (and CSS) tricks used to build it.">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Samuel Gulliksson">
+<meta property="og:title" content="Moving poetry: Behind the scenes">
+<meta property="og:url" content="/tech/2021/12/01/moving-poetry.html">
+
+
+  <meta property="og:description" content="The “Moving poetry” project (Swedish only) was an exploration of text and technology. This post describes some of the nifty Javascript (and CSS) tricks used to build it.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-12-01T00:00:00+01:00">
+
+
+
+
+
+
+<link rel="canonical" href="/tech/2021/12/01/moving-poetry.html">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Samuel Gulliksson",
+      "url": "/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Samuel Gulliksson
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/text">Text</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tech">Tech</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Moving poetry: Behind the scenes">
+    <meta itemprop="description" content="The “Moving poetry” project (Swedish only) was an exploration of text and technology.This post describes some of the nifty Javascript (and CSS) tricks used to build it.">
+    <meta itemprop="datePublished" content="2021-12-01T00:00:00+01:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Moving poetry: Behind the scenes
+</h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-12-01T00:00:00+01:00">December 1, 2021</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>The <a href="/text/2021/11/10/moving-poetry-skogsvandring.html">“Moving poetry” project</a> (Swedish only) was an exploration of text and technology.
+This post describes some of the nifty Javascript (and CSS) tricks used to build it.</p>
+
+<h2 id="web-animations-api">Web Animations API</h2>
+
+<p>The entire project revolves around the “new”
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API">Web Animations API</a>,
+available in modern browsers.
+As the name suggests, the API makes it possible to animate DOM elements.
+All properties of an element which can be animated are listed
+<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties">here</a>.</p>
+
+<p>Animations are defined as a
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyframeEffect/KeyframeEffect"><code class="language-plaintext highlighter-rouge">KeyframeEffect</code></a>,
+which consists of two parts: the 
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API/Keyframe_Formats">keyframes</a>
+describing the transitions of the animation,
+and the options controlling the animations behavior.</p>
+
+<p>Below some examples are shown of what effects can be achieved when animating text elements
+(all but the font size animation can of course be applied to any type of element).</p>
+
+<h3 id="opacity">Opacity</h3>
+
+<p>To make an element fade in and/or out, the opacity can be animated.</p>
+<iframe src="/code-examples/index.html?url=/code-examples/2021-12-01-moving-poetry/opacity/basic" loading="lazy" width="100%" height="250"></iframe>
+
+<p>Notice the difference when pressing the cancel or finish button:
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/Animation/cancel">cancelling an animation</a>
+will remove any applied effects (returning the element to its starting state)
+while
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/Animation/finish">finishing an animation</a>
+will set the current playback time to the end of the animation, which combined with the animation option <code class="language-plaintext highlighter-rouge">fill: 'forwards'</code> puts the element in its final animated state.</p>
+
+<p><strong>Safari bug:</strong> When animating the opacity it seems Safari does some strange things.
+In below example (Safari only, reproducible at least in version <code class="language-plaintext highlighter-rouge">14.1.2</code>, even though it seems like an
+<a href="https://stackoverflow.com/a/10935121">old issue</a>)
+the top two lines fade out even though only the first line has its opacity animated.
+The third line only stays visible since it has <code class="language-plaintext highlighter-rouge">opacity: 1</code> applied by CSS.</p>
+<iframe src="/code-examples/index.html?url=/code-examples/2021-12-01-moving-poetry/opacity/safari-fix" loading="lazy" width="100%" height="250"></iframe>
+
+<h3 id="font-size">Font size</h3>
+
+<p>By animating the font size, text can be made to smoothly disappear or appear:</p>
+<iframe src="/code-examples/index.html?url=/code-examples/2021-12-01-moving-poetry/fontsize/basic" loading="lazy" width="100%" height="250"></iframe>
+
+<p>A small problem, illustrated by the red border in above example, is that the element itself is still rendered.
+This can be fixed by using
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/Animation/onfinish"><code class="language-plaintext highlighter-rouge">Animation.onfinish</code></a> 
+to apply a CSS class hiding the element.</p>
+<iframe src="/code-examples/index.html?url=/code-examples/2021-12-01-moving-poetry/fontsize/improved" loading="lazy" width="100%" height="250"></iframe>
+
+<h3 id="translation">Translation</h3>
+
+<p>The movement of elements can also be animated.</p>
+<iframe src="/code-examples/index.html?url=/code-examples/2021-12-01-moving-poetry/translation/basic" loading="lazy" width="100%" height="250"></iframe>
+
+<p>Using the <code class="language-plaintext highlighter-rouge">cubic-bezier</code> function to control the timing of the animation
+allows some really cool patterns to emerge while still using the same simple keyframes.
+<a href="https://css-tricks.com/advanced-css-animation-using-cubic-bezier/">CSS-Tricks</a>
+has further examples with explanations.
+To experiment with finding the perfect curve you can use <a href="https://cubic-bezier.com">cubic-bezier.com</a>.</p>
+
+<p>When there is a single keyframe specified, the browser will interpret it as the end state and
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API/Keyframe_Formats#implicit_tofrom_keyframes">try to infer the starting state</a>.
+Hence, when chaining animations with more than one keyframe it’s necessary to make sure they are still starting from their current state.
+This can be done using
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle"><code class="language-plaintext highlighter-rouge">getComputedStyle</code></a> to get the current transform of the element.
+Otherwise the result will look very jumpy, as can be seen in the below example: the “Relative” text element moves along a smooth square (split into two separate animations),
+while the “Basic” text elements jumps between positions.</p>
+<iframe src="/code-examples/index.html?url=/code-examples/2021-12-01-moving-poetry/translation/relative-chaining" loading="lazy" width="100%" height="250"></iframe>
+
+<h3 id="rotation">Rotation</h3>
+
+<p>Similarly, the rotation of elements can be animated.
+By moving the
+<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin"><code class="language-plaintext highlighter-rouge">transform-origin</code></a>,
+the element can be rotated around different points.</p>
+<iframe src="/code-examples/index.html?url=/code-examples/2021-12-01-moving-poetry/rotation/basic" loading="lazy" width="100%" height="250"></iframe>
+
+<p>By combining animations more complex effects can be achieved.
+In the following example an element containing a child element is rotated,
+before the child element itself is transformed.</p>
+<iframe src="/code-examples/index.html?url=/code-examples/2021-12-01-moving-poetry/rotation/complex" loading="lazy" width="100%" height="250"></iframe>
+
+<h2 id="responsiveness">Responsiveness</h2>
+
+<p>To make sure animations are responsive, and working nicely on smaller screens as well, there are some tricks that can help:</p>
+<ul>
+  <li>Use relative length units for all the things, including animated translations. Especially if you’re using
+<a href="https://css-tricks.com/snippets/css/fluid-typography/">fluid typography</a> the text animations will scale nicely.</li>
+  <li>CSS functions and variables can be used when specifying the animation keyframes. It’s totally legal to specify something like
+    <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span> <span class="nl">transform</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">translateX(calc(var(--font-size) * 5))</span><span class="dl">'</span><span class="p">]</span> <span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>If you really need to customize the animations based on for example screen size,
+<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries">media queries</a> can be used in Javascript via 
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia">matchMedia</a>.</li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2021-12-01T00:00:00+01:00">December 1, 2021</time></p>
+
+
+      </footer>
+
+      
+
+      
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://github.com/zamzterz" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 Samuel Gulliksson. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

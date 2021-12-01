@@ -16,4 +16,10 @@ var store = [{
         "tags": [],
         "url": "/text/2021/11/10/moving-poetry-skogsvandring.html",
         "teaser": null
+      },{
+        "title": "Moving poetry: Behind the scenes",
+        "excerpt":"The “Moving poetry” project (Swedish only) was an exploration of text and technology. This post describes some of the nifty Javascript (and CSS) tricks used to build it. Web Animations API The entire project revolves around the “new” Web Animations API, available in modern browsers. As the name suggests, the...","categories": ["tech"],
+        "tags": [],
+        "url": "/tech/2021/12/01/moving-poetry.html",
+        "teaser": null
       }]
