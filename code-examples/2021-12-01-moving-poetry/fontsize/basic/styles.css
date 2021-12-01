@@ -1,0 +1,11 @@
+:root {
+  --font-size: 16px;
+}
+
+body {
+  font-size: var(--font-size);
+}
+
+#o {
+  border: solid red 2px;
+}

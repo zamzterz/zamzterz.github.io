@@ -1,0 +1,19 @@
+body {
+  width: 90vw;
+  height: 90vh;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#text {
+  display: inline-block;
+  border: solid red 1px;
+  margin-top: 40px;
+}

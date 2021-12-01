@@ -11,4 +11,8 @@ Så gå på upptäcktsfärd, precis som i skogen: [Moving poetry: Skogsvandring]
 Omkastade rader, anagram och andra konstruktioner utmanar idén om att text behöver läsas enligt sin struktur på den tryckta sidan.
 I skärningspunkten mellan text och konst får betraktaren istället själv välja sin egen läsning.*
 
-<small>(För bästa upplevelse använd en uppdaterad webbläsare och landskapsläge på mindre enheter.)</small>
+<small>
+För bästa upplevelse använd en uppdaterad webbläsare och landskapsläge på mindre enheter.
+En beskrivning av tekniken som använts för att skapa detta finns
+[här]({% link tech/_posts/2021-12-01-moving-poetry.md%}) (på engelska).
+</small>
