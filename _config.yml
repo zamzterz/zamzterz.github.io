@@ -4,7 +4,7 @@ title: Samuel Gulliksson
 name: Samuel Gulliksson
 timezone: Europe/Stockholm
 
-exclude: ["moving-poetry-source", "Gemfile", "Gemfile.lock", "node_modules", "vendor/bundle/", "vendor/cache/", "vendor/gems/", "vendor/ruby/"]
+exclude: ["moving-poetry-source"]
 
 defaults:
   # _posts
