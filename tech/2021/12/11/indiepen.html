@@ -1,0 +1,288 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Using Indiepen for embedded code examples - Samuel Gulliksson</title>
+<meta name="description" content="While documenting the technical details of the “Moving poetry” project I needed to include structured code examples that would also be rendered to show the described results. Many hosted alternatives exist, like Codepen and JSFiddle, but I wanted to host the files myself (to be able to version them same as the rest of this blog, etc.), and not have to sign up for yet another service.">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Samuel Gulliksson">
+<meta property="og:title" content="Using Indiepen for embedded code examples">
+<meta property="og:url" content="/tech/2021/12/11/indiepen.html">
+
+
+  <meta property="og:description" content="While documenting the technical details of the “Moving poetry” project I needed to include structured code examples that would also be rendered to show the described results. Many hosted alternatives exist, like Codepen and JSFiddle, but I wanted to host the files myself (to be able to version them same as the rest of this blog, etc.), and not have to sign up for yet another service.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-12-11T00:00:00+01:00">
+
+
+
+
+
+
+<link rel="canonical" href="/tech/2021/12/11/indiepen.html">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Samuel Gulliksson",
+      "url": "/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Samuel Gulliksson
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/text">Text</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tech">Tech</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Using Indiepen for embedded code examples">
+    <meta itemprop="description" content="While documenting thetechnical details of the “Moving poetry” projectI needed to include structured code examples that would also be rendered to show the described results.Many hosted alternatives exist,like Codepen and JSFiddle,but I wanted to host the files myself (to be able to version them same as the rest of this blog, etc.),and not have to sign up for yet another service.">
+    <meta itemprop="datePublished" content="2021-12-11T00:00:00+01:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Using Indiepen for embedded code examples
+</h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-12-11T00:00:00+01:00">December 11, 2021</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>While documenting the
+<a href="/tech/2021/12/01/moving-poetry.html">technical details of the “Moving poetry” project</a>
+I needed to include structured code examples that would also be rendered to show the described results.
+Many hosted alternatives exist,
+like <a href="https://codepen.io/">Codepen</a> and <a href="https://jsfiddle.net/">JSFiddle</a>,
+but I wanted to host the files myself (to be able to version them same as the rest of this blog, etc.),
+and not have to sign up for yet another service.</p>
+
+<p>That’s when I stumbled upon <a href="https://indiepen.tech/">Indiepen</a>, which judging by its description
+sounded like the perfect fit:</p>
+<blockquote>
+  <p>An independent and privacy-friendly solution to present your code examples to the people.</p>
+</blockquote>
+
+<p>To use Indiepen, you simply need to host the code example files (HTML, CSS and JavaScript) somewhere
+and provide the URL for Indiepen to present them together with a preview.
+Only one problem: Indiepen is yet another hosted service that would introduce a dependency
+as described in this <a href="https://github.com/yetanother-blog/indiepen/issues/73">Github issue</a>.</p>
+
+<p>Since Indiepen is open source with a permissive MIT license I decided to see if I could
+make a build of it that could be self-hosted on this blog.
+What I ended up with was something even better: a self-contained single HTML file that can be hosted and included anywhere,
+removing the need to host the full web service of Indiepen.</p>
+
+<p>The necessary changes to build such a file are described
+<a href="https://github.com/yetanother-blog/indiepen/issues/73#issuecomment-970080949">here</a>,
+and the setup for this blog now includes a copy of the
+<a href="https://github.com/zamzterz/zamzterz.github.io/blob/ac43caa9d88c51128ce8fcc4e03685535fe12765/code-examples/index.html">Indiepen HTML file</a>.
+For example in the <a href="/tech/2021/12/01/moving-poetry.html#opacity">“Moving poetry” post</a>:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;iframe</span> <span class="na">src=</span><span class="s">"/code-examples/index.html?url=/code-examples/2021-12-01-moving-poetry/opacity/basic"</span> <span class="na">loading=</span><span class="s">"lazy"</span> <span class="na">width=</span><span class="s">"100%"</span> <span class="na">height=</span><span class="s">"250"</span><span class="nt">&gt;&lt;/iframe&gt;</span>
+</code></pre></div></div>
+
+<p>which renders as</p>
+<iframe src="/code-examples/index.html?url=/code-examples/2021-12-01-moving-poetry/opacity/basic" loading="lazy" width="100%" height="250"></iframe>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2021-12-11T00:00:00+01:00">December 11, 2021</time></p>
+
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/tech/2021/12/01/moving-poetry.html" class="pagination--pager" title="Moving poetry: Behind the scenes">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://github.com/zamzterz" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 Samuel Gulliksson. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

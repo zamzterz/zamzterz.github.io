@@ -1,4 +1,38 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2021-12-01T09:38:50+01:00</updated><id>/feed.xml</id><title type="html">Samuel Gulliksson</title><entry><title type="html">Moving poetry: Behind the scenes</title><link href="/tech/2021/12/01/moving-poetry.html" rel="alternate" type="text/html" title="Moving poetry: Behind the scenes" /><published>2021-12-01T00:00:00+01:00</published><updated>2021-12-01T00:00:00+01:00</updated><id>/tech/2021/12/01/moving-poetry</id><content type="html" xml:base="/tech/2021/12/01/moving-poetry.html">&lt;p&gt;The &lt;a href=&quot;/text/2021/11/10/moving-poetry-skogsvandring.html&quot;&gt;“Moving poetry” project&lt;/a&gt; (Swedish only) was an exploration of text and technology.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2021-12-11T15:49:59+01:00</updated><id>/feed.xml</id><title type="html">Samuel Gulliksson</title><entry><title type="html">Using Indiepen for embedded code examples</title><link href="/tech/2021/12/11/indiepen.html" rel="alternate" type="text/html" title="Using Indiepen for embedded code examples" /><published>2021-12-11T00:00:00+01:00</published><updated>2021-12-11T00:00:00+01:00</updated><id>/tech/2021/12/11/indiepen</id><content type="html" xml:base="/tech/2021/12/11/indiepen.html">&lt;p&gt;While documenting the
+&lt;a href=&quot;/tech/2021/12/01/moving-poetry.html&quot;&gt;technical details of the “Moving poetry” project&lt;/a&gt;
+I needed to include structured code examples that would also be rendered to show the described results.
+Many hosted alternatives exist,
+like &lt;a href=&quot;https://codepen.io/&quot;&gt;Codepen&lt;/a&gt; and &lt;a href=&quot;https://jsfiddle.net/&quot;&gt;JSFiddle&lt;/a&gt;,
+but I wanted to host the files myself (to be able to version them same as the rest of this blog, etc.),
+and not have to sign up for yet another service.&lt;/p&gt;
+
+&lt;p&gt;That’s when I stumbled upon &lt;a href=&quot;https://indiepen.tech/&quot;&gt;Indiepen&lt;/a&gt;, which judging by its description
+sounded like the perfect fit:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;An independent and privacy-friendly solution to present your code examples to the people.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;To use Indiepen, you simply need to host the code example files (HTML, CSS and JavaScript) somewhere
+and provide the URL for Indiepen to present them together with a preview.
+Only one problem: Indiepen is yet another hosted service that would introduce a dependency
+as described in this &lt;a href=&quot;https://github.com/yetanother-blog/indiepen/issues/73&quot;&gt;Github issue&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Since Indiepen is open source with a permissive MIT license I decided to see if I could
+make a build of it that could be self-hosted on this blog.
+What I ended up with was something even better: a self-contained single HTML file that can be hosted and included anywhere,
+removing the need to host the full web service of Indiepen.&lt;/p&gt;
+
+&lt;p&gt;The necessary changes to build such a file are described
+&lt;a href=&quot;https://github.com/yetanother-blog/indiepen/issues/73#issuecomment-970080949&quot;&gt;here&lt;/a&gt;,
+and the setup for this blog now includes a copy of the
+&lt;a href=&quot;https://github.com/zamzterz/zamzterz.github.io/blob/ac43caa9d88c51128ce8fcc4e03685535fe12765/code-examples/index.html&quot;&gt;Indiepen HTML file&lt;/a&gt;.
+For example in the &lt;a href=&quot;/tech/2021/12/01/moving-poetry.html#opacity&quot;&gt;“Moving poetry” post&lt;/a&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;iframe&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/code-examples/index.html?url=/code-examples/2021-12-01-moving-poetry/opacity/basic&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;loading=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;lazy&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;100%&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;250&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/iframe&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;which renders as&lt;/p&gt;
+&lt;iframe src=&quot;/code-examples/index.html?url=/code-examples/2021-12-01-moving-poetry/opacity/basic&quot; loading=&quot;lazy&quot; width=&quot;100%&quot; height=&quot;250&quot;&gt;&lt;/iframe&gt;</content><author><name>Samuel Gulliksson</name></author><category term="tech" /><category term="open-source" /><summary type="html">While documenting the technical details of the “Moving poetry” project I needed to include structured code examples that would also be rendered to show the described results. Many hosted alternatives exist, like Codepen and JSFiddle, but I wanted to host the files myself (to be able to version them same as the rest of this blog, etc.), and not have to sign up for yet another service.</summary></entry><entry><title type="html">Moving poetry: Behind the scenes</title><link href="/tech/2021/12/01/moving-poetry.html" rel="alternate" type="text/html" title="Moving poetry: Behind the scenes" /><published>2021-12-01T00:00:00+01:00</published><updated>2021-12-01T00:00:00+01:00</updated><id>/tech/2021/12/01/moving-poetry</id><content type="html" xml:base="/tech/2021/12/01/moving-poetry.html">&lt;p&gt;The &lt;a href=&quot;/text/2021/11/10/moving-poetry-skogsvandring.html&quot;&gt;“Moving poetry” project&lt;/a&gt; (Swedish only) was an exploration of text and technology.
 This post describes some of the nifty Javascript (and CSS) tricks used to build it.&lt;/p&gt;
 
 &lt;h2 id=&quot;web-animations-api&quot;&gt;Web Animations API&lt;/h2&gt;

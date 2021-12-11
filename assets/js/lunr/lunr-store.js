@@ -22,4 +22,10 @@ var store = [{
         "tags": [],
         "url": "/tech/2021/12/01/moving-poetry.html",
         "teaser": null
+      },{
+        "title": "Using Indiepen for embedded code examples",
+        "excerpt":"While documenting the technical details of the “Moving poetry” project I needed to include structured code examples that would also be rendered to show the described results. Many hosted alternatives exist, like Codepen and JSFiddle, but I wanted to host the files myself (to be able to version them same...","categories": ["tech"],
+        "tags": ["open-source"],
+        "url": "/tech/2021/12/11/indiepen.html",
+        "teaser": null
       }]
