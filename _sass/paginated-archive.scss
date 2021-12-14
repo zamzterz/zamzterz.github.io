@@ -1,4 +1,4 @@
-$pagination-base-color: skyblue;
+$pagination-base-color: $light-gray;
 
 .archive-container {
     display: flex;
@@ -19,17 +19,23 @@ $pagination-base-color: skyblue;
             border: solid 1px $pagination-base-color;
             border-radius: 3px;
 
-            a {
+            .pager-trail-element {
                 display: inline-block;
-                text-decoration: none;
                 margin: 0;
-                text-align: center;
                 padding: 2px 10px;
+                text-align: center;
+            }
+
+            a:hover {
+                text-decoration: underline;
             }
         }
 
         .selected {
             background: $pagination-base-color;
+            span {
+                color: white;
+            }
         }
     }
 }
