@@ -1,0 +1,43 @@
+---
+layout: archive
+---
+
+<div class="archive-container">
+    <ul class="post-list">
+        {% for post in paginator.posts %}
+        <li>{% include post_single_short.html %}</li>
+        {% endfor %}
+    </ul>
+
+    <nav>
+        {% if paginator.total_pages > 1 %}
+        <ul class="pager">
+            {% if paginator.previous_page %}
+            <li class="previous">
+                <a class="pager-trail-element" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&lt;</a>
+            </li>
+            {% endif %}
+
+            {% if paginator.page_trail %}
+            {% for trail in paginator.page_trail %}
+                <li {% if page.url == trail.path %}class="selected"{% endif %}>
+                    {% if page.url != trail.path %} 
+                        <a class="pager-trail-element" href="{{ trail.path | prepend: site.baseurl | replace: '//', '/' }}" title="{{trail.title}}">
+                            {{ trail.num }}
+                        </a>
+                    {% else %}
+                        <span class="pager-trail-element">{{ trail.num }}</span>
+                    {% endif %}
+                </li>
+            {% endfor %}
+            {% endif %}
+
+            {% if paginator.next_page %}
+            <li class="next">
+                <a class="pager-trail-element" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">&gt;</a>
+            </li>
+            {% endif %}
+        </ul>
+        {% endif %}
+    </nav>
+</div>
