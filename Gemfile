@@ -6,3 +6,4 @@ git_source(:github) { |repo_name| "https://github.com/zamzterz/zamzterz.github.i
 
 gem "jekyll"
 gem "minimal-mistakes-jekyll"
+gem "jekyll-paginate-v2"
