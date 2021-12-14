@@ -1,8 +1,5 @@
-<!-- TODO: render full posts instead and then link to more... -->
 <ul>
     {% for post in include.category limit: include.limit %}
-        {% if post.url %}
-            <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-        {% endif %}
+        {% include post_single_short.html %}
     {% endfor %}
 </ul>
