@@ -28,4 +28,10 @@ var store = [{
         "tags": ["open-source"],
         "url": "/tech/2021/12/11/indiepen.html",
         "teaser": null
+      },{
+        "title": "Avoid iframe navigation affecting browser history",
+        "excerpt":"This blog uses Indiepen for code examples. It was working fine in Chrome, but testing in Firefox showed something strange when navigating to this post: clicking the back button didn’t seem to have any effect. Not until after repeated clicks on the back button would the browser navigate back to...","categories": ["tech"],
+        "tags": ["open-source"],
+        "url": "/tech/2021/12/21/indiepen-iframe-fix.html",
+        "teaser": null
       }]

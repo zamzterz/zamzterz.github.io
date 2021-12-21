@@ -1,4 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2021-12-14T22:38:31+01:00</updated><id>/feed.xml</id><title type="html">Samuel Gulliksson</title><entry><title type="html">Using Indiepen for embedded code examples</title><link href="/tech/2021/12/11/indiepen.html" rel="alternate" type="text/html" title="Using Indiepen for embedded code examples" /><published>2021-12-11T00:00:00+01:00</published><updated>2021-12-11T00:00:00+01:00</updated><id>/tech/2021/12/11/indiepen</id><content type="html" xml:base="/tech/2021/12/11/indiepen.html">&lt;p&gt;While documenting the
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2021-12-21T09:25:14+01:00</updated><id>/feed.xml</id><title type="html">Samuel Gulliksson</title><entry><title type="html">Avoid iframe navigation affecting browser history</title><link href="/tech/2021/12/21/indiepen-iframe-fix.html" rel="alternate" type="text/html" title="Avoid iframe navigation affecting browser history" /><published>2021-12-21T00:00:00+01:00</published><updated>2021-12-21T00:00:00+01:00</updated><id>/tech/2021/12/21/indiepen-iframe-fix</id><content type="html" xml:base="/tech/2021/12/21/indiepen-iframe-fix.html">&lt;p&gt;This blog uses
+&lt;a href=&quot;/tech/2021/12/11/indiepen.html&quot;&gt;Indiepen for code examples&lt;/a&gt;.
+It was working fine in Chrome,
+but testing in Firefox showed something strange when navigating to &lt;a href=&quot;/tech/2021/12/01/moving-poetry.html&quot;&gt;this post&lt;/a&gt;:
+clicking the back button didn’t seem to have any effect.
+Not until after repeated clicks on the back button would the browser navigate back to a previous page.&lt;/p&gt;
+
+&lt;p&gt;Turns out the embedded Indiepen iframe’s were to blame:
+setting the iframe &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;src&lt;/code&gt; attribute will add an entry to the browser history,
+and that’s exactly what Indiepen does to show the rendered result of a code example.
+Since that particular blog posts contains multiple embedded Indiepen iframe’s
+it required multiple clicks on the browser back button, one for each embedded iframe.&lt;/p&gt;
+
+&lt;p&gt;I’ve contributed &lt;a href=&quot;https://github.com/yetanother-blog/indiepen/pull/121&quot;&gt;a fix&lt;/a&gt;
+which has been merged. 🎉&lt;/p&gt;</content><author><name>Samuel Gulliksson</name></author><category term="tech" /><category term="open-source" /><summary type="html">This blog uses Indiepen for code examples. It was working fine in Chrome, but testing in Firefox showed something strange when navigating to this post: clicking the back button didn’t seem to have any effect. Not until after repeated clicks on the back button would the browser navigate back to a previous page.</summary></entry><entry><title type="html">Using Indiepen for embedded code examples</title><link href="/tech/2021/12/11/indiepen.html" rel="alternate" type="text/html" title="Using Indiepen for embedded code examples" /><published>2021-12-11T00:00:00+01:00</published><updated>2021-12-11T00:00:00+01:00</updated><id>/tech/2021/12/11/indiepen</id><content type="html" xml:base="/tech/2021/12/11/indiepen.html">&lt;p&gt;While documenting the
 &lt;a href=&quot;/tech/2021/12/01/moving-poetry.html&quot;&gt;technical details of the “Moving poetry” project&lt;/a&gt;
 I needed to include structured code examples that would also be rendered to show the described results.
 Many hosted alternatives exist,
