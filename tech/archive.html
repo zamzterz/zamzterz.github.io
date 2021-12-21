@@ -140,11 +140,37 @@
         
         <li><div class="single-post">
     <h3>
-        <a class="post-link" href="/tech/2021/12/01/moving-poetry.html">Moving poetry: Behind the scenes</a>
+        <a class="post-link" href="/tech/2021/12/21/vscode-pdf.html">Preserving current page number with vscode-pdf</a>
     </h3>
-    <span class="post-meta">01 Dec 2021<br><code></code></span>
-    <span class="post-excerpt"><p>The <a href="/text/2021/11/10/moving-poetry-skogsvandring.html">“Moving poetry” project</a> (Swedish only) was an exploration of text and technology.
-This post describes some of the nifty Javascript (and CSS) tricks used to build it.</p>
+    <span class="post-meta">21 Dec 2021<br><code>open-source</code></span>
+    <span class="post-excerpt"><p>I’m using the VS Code extension
+<a href="https://marketplace.visualstudio.com/items?itemName=tomoki1207.pdf">vscode-pdf</a>,
+which under the hood uses
+<a href="https://mozilla.github.io/pdf.js/">PDF.js</a>
+to render PDF files in a Webview within VS Code.
+After loading, the extension watches the opened PDF file for changes
+and if it detects any it reloads the file.
+This is a great feature, except as reported in a
+<a href="https://github.com/tomoki1207/vscode-pdfviewer/issues/118">Github issue</a>
+it causes the PDF view to jump to the top of the file on reload.
+This is not so great if you’re automatically (re)generating the PDF
+from for example a Latex document and want to quickly be able to see your changes
+(which is exactly what I do when editing my fiction writing).</p>
+</span>
+</div>
+</li>
+        
+        <li><div class="single-post">
+    <h3>
+        <a class="post-link" href="/tech/2021/12/21/indiepen-iframe-fix.html">Avoid iframe navigation affecting browser history</a>
+    </h3>
+    <span class="post-meta">21 Dec 2021<br><code>open-source</code></span>
+    <span class="post-excerpt"><p>This blog uses
+<a href="/tech/2021/12/11/indiepen.html">Indiepen for code examples</a>.
+It was working fine in Chrome,
+but testing in Firefox showed something strange when navigating to <a href="/tech/2021/12/01/moving-poetry.html">this post</a>:
+clicking the back button didn’t seem to have any effect.
+Not until after repeated clicks on the back button would the browser navigate back to a previous page.</p>
 </span>
 </div>
 </li>
@@ -167,37 +193,11 @@ and not have to sign up for yet another service.</p>
         
         <li><div class="single-post">
     <h3>
-        <a class="post-link" href="/tech/2021/12/21/indiepen-iframe-fix.html">Avoid iframe navigation affecting browser history</a>
+        <a class="post-link" href="/tech/2021/12/01/moving-poetry.html">Moving poetry: Behind the scenes</a>
     </h3>
-    <span class="post-meta">21 Dec 2021<br><code>open-source</code></span>
-    <span class="post-excerpt"><p>This blog uses
-<a href="/tech/2021/12/11/indiepen.html">Indiepen for code examples</a>.
-It was working fine in Chrome,
-but testing in Firefox showed something strange when navigating to <a href="/tech/2021/12/01/moving-poetry.html">this post</a>:
-clicking the back button didn’t seem to have any effect.
-Not until after repeated clicks on the back button would the browser navigate back to a previous page.</p>
-</span>
-</div>
-</li>
-        
-        <li><div class="single-post">
-    <h3>
-        <a class="post-link" href="/tech/2021/12/21/vscode-pdf.html">Preserving current page number with vscode-pdf</a>
-    </h3>
-    <span class="post-meta">21 Dec 2021<br><code>open-source</code></span>
-    <span class="post-excerpt"><p>I’m using the VS Code extension
-<a href="https://marketplace.visualstudio.com/items?itemName=tomoki1207.pdf">vscode-pdf</a>,
-which under the hood uses
-<a href="https://mozilla.github.io/pdf.js/">PDF.js</a>
-to render PDF files in a Webview within VS Code.
-After loading, the extension watches the opened PDF file for changes
-and if it detects any it reloads the file.
-This is a great feature, except as reported in a
-<a href="https://github.com/tomoki1207/vscode-pdfviewer/issues/118">Github issue</a>
-it causes the PDF view to jump to the top of the file on reload.
-This is not so great if you’re automatically (re)generating the PDF
-from for example a Latex document and want to quickly be able to see your changes
-(which is exactly what I do when editing my fiction writing).</p>
+    <span class="post-meta">01 Dec 2021<br><code></code></span>
+    <span class="post-excerpt"><p>The <a href="/text/2021/11/10/moving-poetry-skogsvandring.html">“Moving poetry” project</a> (Swedish only) was an exploration of text and technology.
+This post describes some of the nifty Javascript (and CSS) tricks used to build it.</p>
 </span>
 </div>
 </li>
