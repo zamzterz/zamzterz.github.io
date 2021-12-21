@@ -182,7 +182,9 @@ and that’s exactly what Indiepen does to show the rendered result of a code ex
 Since that particular blog posts contains multiple embedded Indiepen iframe’s
 it required multiple clicks on the browser back button, one for each embedded iframe.</p>
 
-<p>I’ve contributed <a href="https://github.com/yetanother-blog/indiepen/pull/121">a fix</a>
+<p>The solution is to use <code class="language-plaintext highlighter-rouge">&lt;frame&gt;.contentWindow.location.replace(url)</code>
+instead of assigning directly to <code class="language-plaintext highlighter-rouge">&lt;frame&gt;.src = url</code>.
+I’ve contributed <a href="https://github.com/yetanother-blog/indiepen/pull/121">a fix</a>
 which has been merged. 🎉</p>
 
         
