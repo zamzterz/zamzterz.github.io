@@ -34,4 +34,10 @@ var store = [{
         "tags": ["open-source"],
         "url": "/tech/2021/12/21/indiepen-iframe-fix.html",
         "teaser": null
+      },{
+        "title": "Preserving current page number with vscode-pdf",
+        "excerpt":"I’m using the VS Code extension vscode-pdf, which under the hood uses PDF.js to render PDF files in a Webview within VS Code. After loading, the extension watches the opened PDF file for changes and if it detects any it reloads the file. This is a great feature, except as...","categories": ["tech"],
+        "tags": ["open-source"],
+        "url": "/tech/2021/12/21/vscode-pdf.html",
+        "teaser": null
       }]

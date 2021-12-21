@@ -1,4 +1,26 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2021-12-21T09:43:08+01:00</updated><id>/feed.xml</id><title type="html">Samuel Gulliksson</title><entry><title type="html">Avoid iframe navigation affecting browser history</title><link href="/tech/2021/12/21/indiepen-iframe-fix.html" rel="alternate" type="text/html" title="Avoid iframe navigation affecting browser history" /><published>2021-12-21T00:00:00+01:00</published><updated>2021-12-21T00:00:00+01:00</updated><id>/tech/2021/12/21/indiepen-iframe-fix</id><content type="html" xml:base="/tech/2021/12/21/indiepen-iframe-fix.html">&lt;p&gt;This blog uses
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2021-12-21T10:11:26+01:00</updated><id>/feed.xml</id><title type="html">Samuel Gulliksson</title><entry><title type="html">Preserving current page number with vscode-pdf</title><link href="/tech/2021/12/21/vscode-pdf.html" rel="alternate" type="text/html" title="Preserving current page number with vscode-pdf" /><published>2021-12-21T00:00:00+01:00</published><updated>2021-12-21T00:00:00+01:00</updated><id>/tech/2021/12/21/vscode-pdf</id><content type="html" xml:base="/tech/2021/12/21/vscode-pdf.html">&lt;p&gt;I’m using the VS Code extension
+&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=tomoki1207.pdf&quot;&gt;vscode-pdf&lt;/a&gt;,
+which under the hood uses
+&lt;a href=&quot;https://mozilla.github.io/pdf.js/&quot;&gt;PDF.js&lt;/a&gt;
+to render PDF files in a Webview within VS Code.
+After loading, the extension watches the opened PDF file for changes
+and if it detects any it reloads the file.
+This is a great feature, except as reported in a
+&lt;a href=&quot;https://github.com/tomoki1207/vscode-pdfviewer/issues/118&quot;&gt;Github issue&lt;/a&gt;
+it causes the PDF view to jump to the top of the file on reload.
+This is not so great if you’re automatically (re)generating the PDF
+from for example a Latex document and want to quickly be able to see your changes
+(which is exactly what I do when editing my fiction writing).&lt;/p&gt;
+
+&lt;p&gt;The underlying
+&lt;a href=&quot;https://github.com/mozilla/pdf.js/issues/6847#issuecomment-451761859&quot;&gt;PDF.js library already handles this&lt;/a&gt;,
+but it relies on detecting the page was reloaded
+which doesn’t look to be possible with the current VSCode Webview API.
+Instead I figured it should be possible to grab the current page number,
+reload the PDF file, and then reset the page number to the previous value.
+Turns out that did work, and a
+&lt;a href=&quot;https://github.com/tomoki1207/vscode-pdfviewer/pull/121&quot;&gt;fix&lt;/a&gt;
+was released in version &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1.2.0&lt;/code&gt; of vscode-pdf.&lt;/p&gt;</content><author><name>Samuel Gulliksson</name></author><category term="tech" /><category term="open-source" /><summary type="html">I’m using the VS Code extension vscode-pdf, which under the hood uses PDF.js to render PDF files in a Webview within VS Code. After loading, the extension watches the opened PDF file for changes and if it detects any it reloads the file. This is a great feature, except as reported in a Github issue it causes the PDF view to jump to the top of the file on reload. This is not so great if you’re automatically (re)generating the PDF from for example a Latex document and want to quickly be able to see your changes (which is exactly what I do when editing my fiction writing).</summary></entry><entry><title type="html">Avoid iframe navigation affecting browser history</title><link href="/tech/2021/12/21/indiepen-iframe-fix.html" rel="alternate" type="text/html" title="Avoid iframe navigation affecting browser history" /><published>2021-12-21T00:00:00+01:00</published><updated>2021-12-21T00:00:00+01:00</updated><id>/tech/2021/12/21/indiepen-iframe-fix</id><content type="html" xml:base="/tech/2021/12/21/indiepen-iframe-fix.html">&lt;p&gt;This blog uses
 &lt;a href=&quot;/tech/2021/12/11/indiepen.html&quot;&gt;Indiepen for code examples&lt;/a&gt;.
 It was working fine in Chrome,
 but testing in Firefox showed something strange when navigating to &lt;a href=&quot;/tech/2021/12/01/moving-poetry.html&quot;&gt;this post&lt;/a&gt;:
