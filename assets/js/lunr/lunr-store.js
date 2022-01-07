@@ -40,4 +40,10 @@ var store = [{
         "tags": ["open-source"],
         "url": "/tech/2021/12/21/vscode-pdf.html",
         "teaser": null
+      },{
+        "title": "i det inre landet",
+        "excerpt":"i det inre landet   flyter älven förbi   det klara vattnet   lämnar oss kalla   med skälvande händer   på frusna stränder   vinkar vi skimrande   adjö till modern   som lämnat oss här  ","categories": ["text"],
+        "tags": [],
+        "url": "/text/2022/01/07/i-det-inre-landet.html",
+        "teaser": null
       }]
