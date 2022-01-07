@@ -1,5 +1,22 @@
 .single-post {
+    h3 {
+        margin-bottom: 0;
+    }
+
     .post-meta {
         font-size: $type-size-6;
+        margin-top: 0.2em;
+        margin-bottom: 0.5em;
+    }
+
+    .post-excerpt {
+        p {
+            margin-bottom: 0;
+            display: inline;
+        }
+    }
+
+    .post-more-link {
+        float: right;
     }
 }
