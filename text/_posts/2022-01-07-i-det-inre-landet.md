@@ -7,9 +7,9 @@ i det inre landet \
 flyter älven förbi \
 det klara vattnet
 
-lämnar oss kalla \
-med skälvande händer \
-på frusna stränder
+lämnar mig kall \
+med skälvande tänder \
+frusna händer
 
 vinkar vi skimrande \
 adjö till modern \
