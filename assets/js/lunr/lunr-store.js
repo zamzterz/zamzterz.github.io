@@ -42,8 +42,14 @@ var store = [{
         "teaser": null
       },{
         "title": "i det inre landet",
-        "excerpt":"i det inre landet   flyter älven förbi   det klara vattnet   lämnar oss kalla   med skälvande händer   på frusna stränder   vinkar vi skimrande   adjö till modern   som lämnat oss här  ","categories": ["text"],
+        "excerpt":"i det inre landet   flyter älven förbi   det klara vattnet   lämnar mig kall   med skälvande tänder   frusna händer   vinkar vi skimrande   adjö till modern   som lämnat oss här  ","categories": ["text"],
         "tags": [],
         "url": "/text/2022/01/07/i-det-inre-landet.html",
+        "teaser": null
+      },{
+        "title": "Droppar landar",
+        "excerpt":"Droppar landar   i redan blöt jord.   En otörst   född av tvånget   i regnets hammare.   Ingen säger stopp   det räcker   för de översvämmade   diken som drunknar.                                                        Alla väntar på våren.  ","categories": ["text"],
+        "tags": [],
+        "url": "/text/2022/01/21/droppar-landar.html",
         "teaser": null
       }]
