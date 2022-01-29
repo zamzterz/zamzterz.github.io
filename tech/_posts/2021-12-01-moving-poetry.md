@@ -3,7 +3,7 @@ author: Samuel Gulliksson
 title: "Moving poetry: Behind the scenes"
 ---
 
-The ["Moving poetry" project]({% link text/_posts/2021-11-10-moving-poetry-skogsvandring.md %}) (Swedish only) was an exploration of text and technology.
+The ["Moving poetry" project]({% link art/_posts/2021-11-10-moving-poetry-skogsvandring.md %}) (Swedish only) was an exploration of text and technology.
 This post describes some of the nifty Javascript (and CSS) tricks used to build it.
 
 ## Web Animations API
@@ -17,7 +17,7 @@ All properties of an element which can be animated are listed
 
 Animations are defined as a
 [`KeyframeEffect`](https://developer.mozilla.org/en-US/docs/Web/API/KeyframeEffect/KeyframeEffect),
-which consists of two parts: the 
+which consists of two parts: the
 [keyframes](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API/Keyframe_Formats)
 describing the transitions of the animation,
 and the options controlling the animations behavior.
@@ -52,7 +52,7 @@ By animating the font size, text can be made to smoothly disappear or appear:
 
 A small problem, illustrated by the red border in above example, is that the element itself is still rendered.
 This can be fixed by using
-[`Animation.onfinish`](https://developer.mozilla.org/en-US/docs/Web/API/Animation/onfinish) 
+[`Animation.onfinish`](https://developer.mozilla.org/en-US/docs/Web/API/Animation/onfinish)
 to apply a CSS class hiding the element.
 <iframe src="/code-examples/index.html?url=/code-examples/2021-12-01-moving-poetry/fontsize/improved" loading="lazy" width="100%" height="250"></iframe>
 
@@ -66,7 +66,7 @@ Using the `cubic-bezier` function to control the timing of the animation
 allows some really cool patterns to emerge while still using the same simple keyframes.
 [CSS-Tricks](https://css-tricks.com/advanced-css-animation-using-cubic-bezier/)
 has further examples with explanations.
-To experiment with finding the perfect curve you can use [cubic-bezier.com](https://cubic-bezier.com). 
+To experiment with finding the perfect curve you can use [cubic-bezier.com](https://cubic-bezier.com).
 
 When there is a single keyframe specified, the browser will interpret it as the end state and
 [try to infer the starting state](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API/Keyframe_Formats#implicit_tofrom_keyframes).
@@ -101,5 +101,5 @@ To make sure animations are responsive, and working nicely on smaller screens as
   { transform: ['translateX(calc(var(--font-size) * 5))'] }
   ```
 * If you really need to customize the animations based on for example screen size,
-  [media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries) can be used in Javascript via 
+  [media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries) can be used in Javascript via
   [matchMedia](https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia).

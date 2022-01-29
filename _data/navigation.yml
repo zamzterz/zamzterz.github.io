@@ -1,5 +1,7 @@
 main:
   - title: "Text"
     url: /text
+  - title: "Art"
+    url: /art
   - title: "Tech"
     url: /tech
