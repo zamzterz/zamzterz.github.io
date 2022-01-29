@@ -12,9 +12,9 @@ var store = [{
         "teaser": null
       },{
         "title": "Moving poetry: Skogsvandring",
-        "excerpt":"Saker som rör sig i ögonvrån, uppstår och försvinner - mystiskt och spännande. Det finns ingen rätt väg, bara förslag på stigar genom bokstäver, ord och rader. Så gå på upptäcktsfärd, precis som i skogen: Moving poetry: Skogsvandring “Moving poetry: Skogsvandring” utforskar dynamisk poesi i en lek med text och...","categories": ["text"],
+        "excerpt":"Saker som rör sig i ögonvrån, uppstår och försvinner - mystiskt och spännande. Det finns ingen rätt väg, bara förslag på stigar genom bokstäver, ord och rader. Så gå på upptäcktsfärd, precis som i skogen: Moving poetry: Skogsvandring “Moving poetry: Skogsvandring” utforskar dynamisk poesi i en lek med text och...","categories": ["art"],
         "tags": [],
-        "url": "/text/2021/11/10/moving-poetry-skogsvandring.html",
+        "url": "/art/2021/11/10/moving-poetry-skogsvandring.html",
         "teaser": null
       },{
         "title": "Moving poetry: Behind the scenes",

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2022-01-21T16:10:58+01:00</updated><id>/feed.xml</id><title type="html">Samuel Gulliksson</title><entry><title type="html">Droppar landar</title><link href="/text/2022/01/21/droppar-landar.html" rel="alternate" type="text/html" title="Droppar landar" /><published>2022-01-21T00:00:00+01:00</published><updated>2022-01-21T00:00:00+01:00</updated><id>/text/2022/01/21/droppar-landar</id><content type="html" xml:base="/text/2022/01/21/droppar-landar.html">&lt;p&gt;Droppar landar &lt;br /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2022-01-29T19:13:14+01:00</updated><id>/feed.xml</id><title type="html">Samuel Gulliksson</title><entry><title type="html">Droppar landar</title><link href="/text/2022/01/21/droppar-landar.html" rel="alternate" type="text/html" title="Droppar landar" /><published>2022-01-21T00:00:00+01:00</published><updated>2022-01-21T00:00:00+01:00</updated><id>/text/2022/01/21/droppar-landar</id><content type="html" xml:base="/text/2022/01/21/droppar-landar.html">&lt;p&gt;Droppar landar &lt;br /&gt;
 i redan blöt jord. &lt;br /&gt;
 En otörst &lt;br /&gt;
 född av tvånget &lt;br /&gt;
@@ -95,7 +95,7 @@ For example in the &lt;a href=&quot;/tech/2021/12/01/moving-poetry.html#opacity&
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;which renders as&lt;/p&gt;
-&lt;iframe src=&quot;/code-examples/index.html?url=/code-examples/2021-12-01-moving-poetry/opacity/basic&quot; loading=&quot;lazy&quot; width=&quot;100%&quot; height=&quot;250&quot;&gt;&lt;/iframe&gt;</content><author><name>Samuel Gulliksson</name></author><category term="tech" /><category term="open-source" /><summary type="html">While documenting the technical details of the “Moving poetry” project I needed to include structured code examples that would also be rendered to show the described results. Many hosted alternatives exist, like Codepen and JSFiddle, but I wanted to host the files myself (to be able to version them same as the rest of this blog, etc.), and not have to sign up for yet another service.</summary></entry><entry><title type="html">Moving poetry: Behind the scenes</title><link href="/tech/2021/12/01/moving-poetry.html" rel="alternate" type="text/html" title="Moving poetry: Behind the scenes" /><published>2021-12-01T00:00:00+01:00</published><updated>2021-12-01T00:00:00+01:00</updated><id>/tech/2021/12/01/moving-poetry</id><content type="html" xml:base="/tech/2021/12/01/moving-poetry.html">&lt;p&gt;The &lt;a href=&quot;/text/2021/11/10/moving-poetry-skogsvandring.html&quot;&gt;“Moving poetry” project&lt;/a&gt; (Swedish only) was an exploration of text and technology.
+&lt;iframe src=&quot;/code-examples/index.html?url=/code-examples/2021-12-01-moving-poetry/opacity/basic&quot; loading=&quot;lazy&quot; width=&quot;100%&quot; height=&quot;250&quot;&gt;&lt;/iframe&gt;</content><author><name>Samuel Gulliksson</name></author><category term="tech" /><category term="open-source" /><summary type="html">While documenting the technical details of the “Moving poetry” project I needed to include structured code examples that would also be rendered to show the described results. Many hosted alternatives exist, like Codepen and JSFiddle, but I wanted to host the files myself (to be able to version them same as the rest of this blog, etc.), and not have to sign up for yet another service.</summary></entry><entry><title type="html">Moving poetry: Behind the scenes</title><link href="/tech/2021/12/01/moving-poetry.html" rel="alternate" type="text/html" title="Moving poetry: Behind the scenes" /><published>2021-12-01T00:00:00+01:00</published><updated>2021-12-01T00:00:00+01:00</updated><id>/tech/2021/12/01/moving-poetry</id><content type="html" xml:base="/tech/2021/12/01/moving-poetry.html">&lt;p&gt;The &lt;a href=&quot;/art/2021/11/10/moving-poetry-skogsvandring.html&quot;&gt;“Moving poetry” project&lt;/a&gt; (Swedish only) was an exploration of text and technology.
 This post describes some of the nifty Javascript (and CSS) tricks used to build it.&lt;/p&gt;
 
 &lt;h2 id=&quot;web-animations-api&quot;&gt;Web Animations API&lt;/h2&gt;
@@ -109,7 +109,7 @@ All properties of an element which can be animated are listed
 
 &lt;p&gt;Animations are defined as a
 &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/KeyframeEffect/KeyframeEffect&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;KeyframeEffect&lt;/code&gt;&lt;/a&gt;,
-which consists of two parts: the 
+which consists of two parts: the
 &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API/Keyframe_Formats&quot;&gt;keyframes&lt;/a&gt;
 describing the transitions of the animation,
 and the options controlling the animations behavior.&lt;/p&gt;
@@ -143,7 +143,7 @@ The third line only stays visible since it has &lt;code class=&quot;language-pla
 
 &lt;p&gt;A small problem, illustrated by the red border in above example, is that the element itself is still rendered.
 This can be fixed by using
-&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Animation/onfinish&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Animation.onfinish&lt;/code&gt;&lt;/a&gt; 
+&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Animation/onfinish&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Animation.onfinish&lt;/code&gt;&lt;/a&gt;
 to apply a CSS class hiding the element.&lt;/p&gt;
 &lt;iframe src=&quot;/code-examples/index.html?url=/code-examples/2021-12-01-moving-poetry/fontsize/improved&quot; loading=&quot;lazy&quot; width=&quot;100%&quot; height=&quot;250&quot;&gt;&lt;/iframe&gt;
 
@@ -191,11 +191,11 @@ before the child element itself is transformed.&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
   &lt;/li&gt;
   &lt;li&gt;If you really need to customize the animations based on for example screen size,
-&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries&quot;&gt;media queries&lt;/a&gt; can be used in Javascript via 
+&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries&quot;&gt;media queries&lt;/a&gt; can be used in Javascript via
 &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia&quot;&gt;matchMedia&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Samuel Gulliksson</name></author><category term="tech" /><summary type="html">The “Moving poetry” project (Swedish only) was an exploration of text and technology. This post describes some of the nifty Javascript (and CSS) tricks used to build it.</summary></entry><entry><title type="html">Moving poetry: Skogsvandring</title><link href="/text/2021/11/10/moving-poetry-skogsvandring.html" rel="alternate" type="text/html" title="Moving poetry: Skogsvandring" /><published>2021-11-10T00:00:00+01:00</published><updated>2021-11-10T00:00:00+01:00</updated><id>/text/2021/11/10/moving-poetry-skogsvandring</id><content type="html" xml:base="/text/2021/11/10/moving-poetry-skogsvandring.html">&lt;p&gt;Saker som rör sig i ögonvrån, uppstår och försvinner - mystiskt och spännande. 
+&lt;/ul&gt;</content><author><name>Samuel Gulliksson</name></author><category term="tech" /><summary type="html">The “Moving poetry” project (Swedish only) was an exploration of text and technology. This post describes some of the nifty Javascript (and CSS) tricks used to build it.</summary></entry><entry><title type="html">Moving poetry: Skogsvandring</title><link href="/art/2021/11/10/moving-poetry-skogsvandring.html" rel="alternate" type="text/html" title="Moving poetry: Skogsvandring" /><published>2021-11-10T00:00:00+01:00</published><updated>2021-11-10T00:00:00+01:00</updated><id>/art/2021/11/10/moving-poetry-skogsvandring</id><content type="html" xml:base="/art/2021/11/10/moving-poetry-skogsvandring.html">&lt;p&gt;Saker som rör sig i ögonvrån, uppstår och försvinner - mystiskt och spännande.
 Det finns ingen rätt väg, bara förslag på stigar genom bokstäver, ord och rader.
-Så gå på upptäcktsfärd, precis som i skogen: &lt;a href=&quot;/moving-poetry&quot;&gt;Moving poetry: Skogsvandring&lt;/a&gt;&lt;/p&gt;
+Så gå på upptäcktsfärd, precis som i skogen: &lt;a href=&quot;/art/moving-poetry&quot;&gt;Moving poetry: Skogsvandring&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;“Moving poetry: Skogsvandring” utforskar dynamisk poesi i en lek med text och teknik för att skapa konst(igheter).
 Omkastade rader, anagram och andra konstruktioner utmanar idén om att text behöver läsas enligt sin struktur på den tryckta sidan.
@@ -205,7 +205,7 @@ I skärningspunkten mellan text och konst får betraktaren istället själv väl
 För bästa upplevelse använd en uppdaterad webbläsare och landskapsläge på mindre enheter.
 En beskrivning av tekniken som använts för att skapa detta finns
 &lt;a href=&quot;/tech/2021/12/01/moving-poetry.html&quot;&gt;här&lt;/a&gt; (på engelska).
-&lt;/small&gt;&lt;/p&gt;</content><author><name>Samuel Gulliksson</name></author><category term="text" /><summary type="html">Saker som rör sig i ögonvrån, uppstår och försvinner - mystiskt och spännande. Det finns ingen rätt väg, bara förslag på stigar genom bokstäver, ord och rader. Så gå på upptäcktsfärd, precis som i skogen: Moving poetry: Skogsvandring</summary></entry><entry><title type="html">När natten tynger</title><link href="/text/2021/09/15/n%C3%A4r-natten-tynger.html" rel="alternate" type="text/html" title="När natten tynger" /><published>2021-09-15T00:00:00+02:00</published><updated>2021-09-15T00:00:00+02:00</updated><id>/text/2021/09/15/n%C3%A4r-natten-tynger</id><content type="html" xml:base="/text/2021/09/15/n%C3%A4r-natten-tynger.html">&lt;p&gt;När natten tynger &lt;br /&gt;
+&lt;/small&gt;&lt;/p&gt;</content><author><name>Samuel Gulliksson</name></author><category term="art" /><summary type="html">Saker som rör sig i ögonvrån, uppstår och försvinner - mystiskt och spännande. Det finns ingen rätt väg, bara förslag på stigar genom bokstäver, ord och rader. Så gå på upptäcktsfärd, precis som i skogen: Moving poetry: Skogsvandring</summary></entry><entry><title type="html">När natten tynger</title><link href="/text/2021/09/15/n%C3%A4r-natten-tynger.html" rel="alternate" type="text/html" title="När natten tynger" /><published>2021-09-15T00:00:00+02:00</published><updated>2021-09-15T00:00:00+02:00</updated><id>/text/2021/09/15/n%C3%A4r-natten-tynger</id><content type="html" xml:base="/text/2021/09/15/n%C3%A4r-natten-tynger.html">&lt;p&gt;När natten tynger &lt;br /&gt;
 lättar mörkret ankar. &lt;br /&gt;
 En storm genom allt som är &lt;br /&gt;
 jag sliter i alla trasiga trådar &lt;br /&gt;

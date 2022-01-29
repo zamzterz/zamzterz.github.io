@@ -112,6 +112,8 @@
         <ul class="visible-links"><li class="masthead__menu-item">
               <a href="/text">Text</a>
             </li><li class="masthead__menu-item">
+              <a href="/art">Art</a>
+            </li><li class="masthead__menu-item">
               <a href="/tech">Tech</a>
             </li></ul>
         
@@ -169,7 +171,7 @@
 
       <section class="page__content" itemprop="text">
         
-        <p>The <a href="/text/2021/11/10/moving-poetry-skogsvandring.html">“Moving poetry” project</a> (Swedish only) was an exploration of text and technology.
+        <p>The <a href="/art/2021/11/10/moving-poetry-skogsvandring.html">“Moving poetry” project</a> (Swedish only) was an exploration of text and technology.
 This post describes some of the nifty Javascript (and CSS) tricks used to build it.</p>
 
 <h2 id="web-animations-api">Web Animations API</h2>
@@ -183,7 +185,7 @@ All properties of an element which can be animated are listed
 
 <p>Animations are defined as a
 <a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyframeEffect/KeyframeEffect"><code class="language-plaintext highlighter-rouge">KeyframeEffect</code></a>,
-which consists of two parts: the 
+which consists of two parts: the
 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API/Keyframe_Formats">keyframes</a>
 describing the transitions of the animation,
 and the options controlling the animations behavior.</p>
@@ -217,7 +219,7 @@ The third line only stays visible since it has <code class="language-plaintext h
 
 <p>A small problem, illustrated by the red border in above example, is that the element itself is still rendered.
 This can be fixed by using
-<a href="https://developer.mozilla.org/en-US/docs/Web/API/Animation/onfinish"><code class="language-plaintext highlighter-rouge">Animation.onfinish</code></a> 
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/Animation/onfinish"><code class="language-plaintext highlighter-rouge">Animation.onfinish</code></a>
 to apply a CSS class hiding the element.</p>
 <iframe src="/code-examples/index.html?url=/code-examples/2021-12-01-moving-poetry/fontsize/improved" loading="lazy" width="100%" height="250"></iframe>
 
@@ -265,7 +267,7 @@ before the child element itself is transformed.</p>
 </code></pre></div>    </div>
   </li>
   <li>If you really need to customize the animations based on for example screen size,
-<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries">media queries</a> can be used in Javascript via 
+<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries">media queries</a> can be used in Javascript via
 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia">matchMedia</a>.</li>
 </ul>
 
