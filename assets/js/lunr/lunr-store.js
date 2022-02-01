@@ -52,4 +52,10 @@ var store = [{
         "tags": [],
         "url": "/text/2022/01/21/droppar-landar.html",
         "teaser": null
+      },{
+        "title": "Transcendence: A Visionary Truth",
+        "excerpt":"Who and what are you when seen and rendered by a machine? Machines can be trained to see, at least in the sense that they can detect objects in images and classify them. A behavior not very unlike the very human reaction of instinctively assigning rigid labels to everything we...","categories": ["art"],
+        "tags": [],
+        "url": "/art/2022/02/01/transcendence.html",
+        "teaser": null
       }]
