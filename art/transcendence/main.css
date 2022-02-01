@@ -1,0 +1,138 @@
+@font-face {
+    font-family: 'fontello';
+    src: url('lib/icons/font/fontello.woff2?48840635') format('woff2'),
+         url('lib/icons/font/fontello.woff?48840635') format('woff');
+}
+
+html {
+    min-height: 100%;
+    overscroll-behavior-y: none;
+}
+
+body {
+    --bg-gradient: linear-gradient(45deg,
+        #1c4454,
+        transparent,
+        #7c545c
+    );
+
+    width: 100%;
+    height: 100%;
+    margin: 0;
+
+    overscroll-behavior-y: none;
+
+    background-color: #6f7c91;
+    background-image: var(--bg-gradient);
+    background-size: 300%;
+    animation: bg-animation 60s infinite;
+
+    color: white;
+    font-family: 'Tahoma', 'Arial', sans-serif;
+}
+
+@keyframes bg-animation {
+    0% {
+        background-position: left;
+    }
+
+    50% {
+        background-position: right;
+    }
+
+    100% {
+        background-position: left;
+    }
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1, h2 {
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    text-align : center;
+}
+
+section {
+    width: 200px;
+    margin-top: 1em;
+}
+
+section > p {
+    width: max-content;
+    padding-right: 10px;
+}
+
+.chart-container,
+.chart-container-big {
+    width: 25vw;
+    min-width: 300px;
+}
+
+.chart-container {
+    height: 20vh;
+    min-height: 150px;
+}
+
+.chart-container-big {
+    height: 30vh;
+    min-height: 200px;
+}
+
+.x-small {
+    font-size: x-small;
+}
+
+.small {
+    font-size: small;
+}
+
+a {
+    --border-color: white;
+    --border-width: 2px;
+
+    background-image: linear-gradient(var(--border-color), var(--border-color));
+    background-size: 0% var(--border-width);
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    transition: background-size 0.3s;
+
+    color: white;
+    outline: none;
+    text-decoration: none;
+    padding-bottom: 5px;
+}
+
+a:hover {
+    background-size: 100% var(--border-width);
+}
+
+del {
+    text-decoration: line-through;
+}
+
+ins {
+    text-decoration: none;
+    position: absolute;
+    top: -0.75em;
+    left: 4.1em;
+}
+
+.anonymous {
+    position: absolute;
+    top: 1.5em;
+    left: 0;
+    color: rgba(255, 255, 255, 0.5);
+    width: max-content;
+    font-size: x-small;
+    font-style: italic;
+}
+
+footer {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    font-size: small;
+}
