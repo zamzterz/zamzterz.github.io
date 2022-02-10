@@ -1,4 +1,53 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2022-02-01T20:43:09+01:00</updated><id>/feed.xml</id><title type="html">Samuel Gulliksson</title><entry><title type="html">Transcendence: A Visionary Truth</title><link href="/art/2022/02/01/transcendence.html" rel="alternate" type="text/html" title="Transcendence: A Visionary Truth" /><published>2022-02-01T00:00:00+01:00</published><updated>2022-02-01T00:00:00+01:00</updated><id>/art/2022/02/01/transcendence</id><content type="html" xml:base="/art/2022/02/01/transcendence.html">&lt;p&gt;&lt;em&gt;Who and what are you when seen and rendered by a machine?&lt;/em&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2022-02-10T20:21:08+01:00</updated><id>/feed.xml</id><title type="html">Samuel Gulliksson</title><entry><title type="html">Transcendence: Behind the scenes</title><link href="/tech/2022/02/10/transcendence.html" rel="alternate" type="text/html" title="Transcendence: Behind the scenes" /><published>2022-02-10T00:00:00+01:00</published><updated>2022-02-10T00:00:00+01:00</updated><id>/tech/2022/02/10/transcendence</id><content type="html" xml:base="/tech/2022/02/10/transcendence.html">&lt;p&gt;The &lt;a href=&quot;/art/2022/02/01/transcendence.html&quot;&gt;“Transcendence” project&lt;/a&gt;
+was an exploration of applying technology to personal data in the form of face portrait images and recorded voice samples.
+This post describes some of the tech used to build it.&lt;/p&gt;
+
+&lt;h2 id=&quot;data-analysis&quot;&gt;Data analysis&lt;/h2&gt;
+&lt;p&gt;The two different data sets — 1 set of images, 1 set of audio recordings — was processed using two libraries:
+&lt;a href=&quot;https://github.com/justadudewhohacks/face-api.js/&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;face-api.js&lt;/code&gt;&lt;/a&gt; and &lt;a href=&quot;https://github.com/peterkhayes/pitchfinder&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pitchfinder&lt;/code&gt;&lt;/a&gt; respectively.&lt;/p&gt;
+
+&lt;p&gt;Turns out both operations could take noticeable time to complete (on the order of tens of seconds), given large enough input sizes.
+In Chrome and Firefox this was not noticeable, but in Safari (as usual…) the UI would freeze and the pretty spinning loader would not actually be shown.
+(Presumably because it &lt;a href=&quot;https://stackoverflow.com/a/66165276&quot;&gt;doesn’t repaint while being busy&lt;/a&gt; with the long running task?)&lt;/p&gt;
+
+&lt;p&gt;To get around this I turned to &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API&quot;&gt;Web Workers&lt;/a&gt;,
+trying to shift all that heavy computing out of the main thread.
+Everything was a smooth ride for the audio processing.
+Not so much for the face detection —
+getting &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;face-api.js&lt;/code&gt; to work in a Web Worker seemed to be an impossible task (or at least too time consuming for this simple proof-of-concept)
+despite &lt;a href=&quot;https://github.com/justadudewhohacks/face-api.js/issues/47&quot;&gt;claims of working examples&lt;/a&gt;.
+However, the basic (blocking) implementation is shown below.&lt;/p&gt;
+
+&lt;p&gt;Supporting multi upload, a set of images can be analysed to detect any contained face and extract information about the identified features of the face (face landmarks), estimated age and gender:&lt;/p&gt;
+
+&lt;iframe src=&quot;/code-examples/index.html?url=/code-examples/2022-02-10-transcendence/image-analysis&amp;amp;tab=js&quot; loading=&quot;lazy&quot; width=&quot;100%&quot; height=&quot;350&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Similarly, a pitch detection algorithm was applied to the audio recordings, which samples the audio data and returns the detected frequencies:&lt;/p&gt;
+
+&lt;iframe src=&quot;/code-examples/index.html?url=/code-examples/2022-02-10-transcendence/audio-analysis&amp;amp;tab=js&quot; loading=&quot;lazy&quot; width=&quot;100%&quot; height=&quot;250&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&lt;a href=&quot;/code-examples/2022-02-10-transcendence/audio-analysis/frequencyDetector.js&quot;&gt;Web Worker code&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Note:&lt;/strong&gt; The results are printed in the Javascript console.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;data-visualization&quot;&gt;Data visualization&lt;/h2&gt;
+
+&lt;p&gt;The extracted data was visualized using &lt;a href=&quot;https://www.chartjs.org/&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Chart.js&lt;/code&gt;&lt;/a&gt;.
+Some of the noteworthy features utilized:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Using a &lt;a href=&quot;(https://www.chartjs.org/docs/3.7.0/samples/advanced/linear-gradient.html)&quot;&gt;gradient as line color&lt;/a&gt; (used for visualizing the binary gender classifications).&lt;/li&gt;
+  &lt;li&gt;The &lt;a href=&quot;https://www.chartjs.org/chartjs-plugin-annotation/latest/&quot;&gt;annotation plugin&lt;/a&gt; for drawing horizontal lines and boxes (used for example to show the average male and female voice ranges).&lt;/li&gt;
+  &lt;li&gt;The &lt;a href=&quot;https://github.com/sgratzl/chartjs-chart-boxplot&quot;&gt;boxplot plugin&lt;/a&gt; for showing the five-number summary for a set of values (used for visualizing the voice frequency data).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;text-to-speech&quot;&gt;Text-to-speech&lt;/h2&gt;
+
+&lt;p&gt;The poem
+&lt;a href=&quot;/art/transcendence/data/not_my_voice.mp3&quot;&gt;“This is not my voice”&lt;/a&gt;
+was rendered using &lt;a href=&quot;https://azure.microsoft.com/en-us/services/cognitive-services/text-to-speech/#overview&quot;&gt;Azure Text to Speech&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;It has a nice variety of voices and offers a &lt;a href=&quot;https://speech.microsoft.com/audiocontentcreation&quot;&gt;graphical web interface&lt;/a&gt;
+for editing the audio content (while also supporting raw &lt;a href=&quot;https://en.wikipedia.org/wiki/Speech_Synthesis_Markup_Language&quot;&gt;SSML&lt;/a&gt;).&lt;/p&gt;</content><author><name>Samuel Gulliksson</name></author><category term="tech" /><summary type="html">The “Transcendence” project was an exploration of applying technology to personal data in the form of face portrait images and recorded voice samples. This post describes some of the tech used to build it.</summary></entry><entry><title type="html">Transcendence: A Visionary Truth</title><link href="/art/2022/02/01/transcendence.html" rel="alternate" type="text/html" title="Transcendence: A Visionary Truth" /><published>2022-02-01T00:00:00+01:00</published><updated>2022-02-01T00:00:00+01:00</updated><id>/art/2022/02/01/transcendence</id><content type="html" xml:base="/art/2022/02/01/transcendence.html">&lt;p&gt;&lt;em&gt;Who and what are you when seen and rendered by a machine?&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;Machines can be trained to see, at least in the sense that they can detect objects in images and classify them.
 A behavior not very unlike the very human reaction of instinctively assigning rigid labels to everything we sense.
@@ -31,6 +80,8 @@ using synthesized speech and animation — freeing the self from body and langua
     &lt;li&gt;116 weekly portrait images of my face without glasses captured with mobile camera.&lt;/li&gt;
     &lt;li&gt;58 recurring (weekly and later monthly) voice recordings captured on mobile phone.&lt;/li&gt;
     &lt;/ul&gt;
+
+    A description of the technology used to built this can be found &lt;a href=&quot;/tech/2022/02/10/transcendence.html&quot;&gt;here&lt;/a&gt;.
 &lt;/div&gt;</content><author><name>Samuel Gulliksson</name></author><category term="art" /><summary type="html">Who and what are you when seen and rendered by a machine?</summary></entry><entry><title type="html">Droppar landar</title><link href="/text/2022/01/21/droppar-landar.html" rel="alternate" type="text/html" title="Droppar landar" /><published>2022-01-21T00:00:00+01:00</published><updated>2022-01-21T00:00:00+01:00</updated><id>/text/2022/01/21/droppar-landar</id><content type="html" xml:base="/text/2022/01/21/droppar-landar.html">&lt;p&gt;Droppar landar &lt;br /&gt;
 i redan blöt jord. &lt;br /&gt;
 En otörst &lt;br /&gt;
@@ -51,7 +102,23 @@ frusna händer&lt;/p&gt;
 
 &lt;p&gt;vinkar vi skimrande &lt;br /&gt;
 adjö till modern &lt;br /&gt;
-som lämnat oss här&lt;/p&gt;</content><author><name>Samuel Gulliksson</name></author><category term="text" /><summary type="html">i det inre landet flyter älven förbi det klara vattnet</summary></entry><entry><title type="html">Preserving current page number with vscode-pdf</title><link href="/tech/2021/12/21/vscode-pdf.html" rel="alternate" type="text/html" title="Preserving current page number with vscode-pdf" /><published>2021-12-21T00:00:00+01:00</published><updated>2021-12-21T00:00:00+01:00</updated><id>/tech/2021/12/21/vscode-pdf</id><content type="html" xml:base="/tech/2021/12/21/vscode-pdf.html">&lt;p&gt;I’m using the VS Code extension
+som lämnat oss här&lt;/p&gt;</content><author><name>Samuel Gulliksson</name></author><category term="text" /><summary type="html">i det inre landet flyter älven förbi det klara vattnet</summary></entry><entry><title type="html">Avoid iframe navigation affecting browser history</title><link href="/tech/2021/12/21/indiepen-iframe-fix.html" rel="alternate" type="text/html" title="Avoid iframe navigation affecting browser history" /><published>2021-12-21T00:00:00+01:00</published><updated>2021-12-21T00:00:00+01:00</updated><id>/tech/2021/12/21/indiepen-iframe-fix</id><content type="html" xml:base="/tech/2021/12/21/indiepen-iframe-fix.html">&lt;p&gt;This blog uses
+&lt;a href=&quot;/tech/2021/12/11/indiepen.html&quot;&gt;Indiepen for code examples&lt;/a&gt;.
+It was working fine in Chrome,
+but testing in Firefox showed something strange when navigating to &lt;a href=&quot;/tech/2021/12/01/moving-poetry.html&quot;&gt;this post&lt;/a&gt;:
+clicking the back button didn’t seem to have any effect.
+Not until after repeated clicks on the back button would the browser navigate back to a previous page.&lt;/p&gt;
+
+&lt;p&gt;Turns out the embedded Indiepen iframe’s were to blame:
+setting the iframe &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;src&lt;/code&gt; attribute will add an entry to the browser history,
+and that’s exactly what Indiepen does to show the rendered result of a code example.
+Since that particular blog posts contains multiple embedded Indiepen iframe’s
+it required multiple clicks on the browser back button, one for each embedded iframe.&lt;/p&gt;
+
+&lt;p&gt;The solution is to use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;frame&amp;gt;.contentWindow.location.replace(url)&lt;/code&gt;
+instead of assigning directly to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;frame&amp;gt;.src = url&lt;/code&gt;.
+I’ve contributed &lt;a href=&quot;https://github.com/yetanother-blog/indiepen/pull/121&quot;&gt;a fix&lt;/a&gt;
+which has been merged. 🎉&lt;/p&gt;</content><author><name>Samuel Gulliksson</name></author><category term="tech" /><category term="open-source" /><summary type="html">This blog uses Indiepen for code examples. It was working fine in Chrome, but testing in Firefox showed something strange when navigating to this post: clicking the back button didn’t seem to have any effect. Not until after repeated clicks on the back button would the browser navigate back to a previous page.</summary></entry><entry><title type="html">Preserving current page number with vscode-pdf</title><link href="/tech/2021/12/21/vscode-pdf.html" rel="alternate" type="text/html" title="Preserving current page number with vscode-pdf" /><published>2021-12-21T00:00:00+01:00</published><updated>2021-12-21T00:00:00+01:00</updated><id>/tech/2021/12/21/vscode-pdf</id><content type="html" xml:base="/tech/2021/12/21/vscode-pdf.html">&lt;p&gt;I’m using the VS Code extension
 &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=tomoki1207.pdf&quot;&gt;vscode-pdf&lt;/a&gt;,
 which under the hood uses
 &lt;a href=&quot;https://mozilla.github.io/pdf.js/&quot;&gt;PDF.js&lt;/a&gt;
@@ -73,23 +140,7 @@ Instead I figured it should be possible to grab the current page number,
 reload the PDF file, and then reset the page number to the previous value.
 Turns out that did work, and a
 &lt;a href=&quot;https://github.com/tomoki1207/vscode-pdfviewer/pull/121&quot;&gt;fix&lt;/a&gt;
-was released in version &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1.2.0&lt;/code&gt; of vscode-pdf.&lt;/p&gt;</content><author><name>Samuel Gulliksson</name></author><category term="tech" /><category term="open-source" /><summary type="html">I’m using the VS Code extension vscode-pdf, which under the hood uses PDF.js to render PDF files in a Webview within VS Code. After loading, the extension watches the opened PDF file for changes and if it detects any it reloads the file. This is a great feature, except as reported in a Github issue it causes the PDF view to jump to the top of the file on reload. This is not so great if you’re automatically (re)generating the PDF from for example a Latex document and want to quickly be able to see your changes (which is exactly what I do when editing my fiction writing).</summary></entry><entry><title type="html">Avoid iframe navigation affecting browser history</title><link href="/tech/2021/12/21/indiepen-iframe-fix.html" rel="alternate" type="text/html" title="Avoid iframe navigation affecting browser history" /><published>2021-12-21T00:00:00+01:00</published><updated>2021-12-21T00:00:00+01:00</updated><id>/tech/2021/12/21/indiepen-iframe-fix</id><content type="html" xml:base="/tech/2021/12/21/indiepen-iframe-fix.html">&lt;p&gt;This blog uses
-&lt;a href=&quot;/tech/2021/12/11/indiepen.html&quot;&gt;Indiepen for code examples&lt;/a&gt;.
-It was working fine in Chrome,
-but testing in Firefox showed something strange when navigating to &lt;a href=&quot;/tech/2021/12/01/moving-poetry.html&quot;&gt;this post&lt;/a&gt;:
-clicking the back button didn’t seem to have any effect.
-Not until after repeated clicks on the back button would the browser navigate back to a previous page.&lt;/p&gt;
-
-&lt;p&gt;Turns out the embedded Indiepen iframe’s were to blame:
-setting the iframe &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;src&lt;/code&gt; attribute will add an entry to the browser history,
-and that’s exactly what Indiepen does to show the rendered result of a code example.
-Since that particular blog posts contains multiple embedded Indiepen iframe’s
-it required multiple clicks on the browser back button, one for each embedded iframe.&lt;/p&gt;
-
-&lt;p&gt;The solution is to use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;frame&amp;gt;.contentWindow.location.replace(url)&lt;/code&gt;
-instead of assigning directly to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;frame&amp;gt;.src = url&lt;/code&gt;.
-I’ve contributed &lt;a href=&quot;https://github.com/yetanother-blog/indiepen/pull/121&quot;&gt;a fix&lt;/a&gt;
-which has been merged. 🎉&lt;/p&gt;</content><author><name>Samuel Gulliksson</name></author><category term="tech" /><category term="open-source" /><summary type="html">This blog uses Indiepen for code examples. It was working fine in Chrome, but testing in Firefox showed something strange when navigating to this post: clicking the back button didn’t seem to have any effect. Not until after repeated clicks on the back button would the browser navigate back to a previous page.</summary></entry><entry><title type="html">Using Indiepen for embedded code examples</title><link href="/tech/2021/12/11/indiepen.html" rel="alternate" type="text/html" title="Using Indiepen for embedded code examples" /><published>2021-12-11T00:00:00+01:00</published><updated>2021-12-11T00:00:00+01:00</updated><id>/tech/2021/12/11/indiepen</id><content type="html" xml:base="/tech/2021/12/11/indiepen.html">&lt;p&gt;While documenting the
+was released in version &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1.2.0&lt;/code&gt; of vscode-pdf.&lt;/p&gt;</content><author><name>Samuel Gulliksson</name></author><category term="tech" /><category term="open-source" /><summary type="html">I’m using the VS Code extension vscode-pdf, which under the hood uses PDF.js to render PDF files in a Webview within VS Code. After loading, the extension watches the opened PDF file for changes and if it detects any it reloads the file. This is a great feature, except as reported in a Github issue it causes the PDF view to jump to the top of the file on reload. This is not so great if you’re automatically (re)generating the PDF from for example a Latex document and want to quickly be able to see your changes (which is exactly what I do when editing my fiction writing).</summary></entry><entry><title type="html">Using Indiepen for embedded code examples</title><link href="/tech/2021/12/11/indiepen.html" rel="alternate" type="text/html" title="Using Indiepen for embedded code examples" /><published>2021-12-11T00:00:00+01:00</published><updated>2021-12-11T00:00:00+01:00</updated><id>/tech/2021/12/11/indiepen</id><content type="html" xml:base="/tech/2021/12/11/indiepen.html">&lt;p&gt;While documenting the
 &lt;a href=&quot;/tech/2021/12/01/moving-poetry.html&quot;&gt;technical details of the “Moving poetry” project&lt;/a&gt;
 I needed to include structured code examples that would also be rendered to show the described results.
 Many hosted alternatives exist,
@@ -257,25 +308,4 @@ djupare &lt;br /&gt;
 till värmen från din rygg. &lt;br /&gt;
 I lä från striden &lt;br /&gt;
 i mina sömmar &lt;br /&gt;
-spricker det upp till sol.&lt;/p&gt;</content><author><name>Samuel Gulliksson</name></author><category term="text" /><summary type="html">När natten tynger lättar mörkret ankar. En storm genom allt som är jag sliter i alla trasiga trådar som håller ihop mig.</summary></entry><entry><title type="html">Sommar i Norrlands inland</title><link href="/text/2019/06/25/sommar-i-norrlands-inland.html" rel="alternate" type="text/html" title="Sommar i Norrlands inland" /><published>2019-06-25T00:00:00+02:00</published><updated>2019-06-25T00:00:00+02:00</updated><id>/text/2019/06/25/sommar-i-norrlands-inland</id><content type="html" xml:base="/text/2019/06/25/sommar-i-norrlands-inland.html">&lt;p&gt;Längs en väg som aldrig &lt;br /&gt;
-tar slut, &lt;br /&gt;
-över ett lapptäcke av mörk och ljus &lt;br /&gt;
-asfaltslagning. &lt;br /&gt;
-Så dånar den nya gamla sommarbilen förbi &lt;br /&gt;
-idyllen med ängsblom och svartvitfläckiga kor, &lt;br /&gt;
-i myggsvärmar och kall juni.&lt;/p&gt;
-
-&lt;p&gt;Tall efter tall, efter gran &lt;br /&gt;
-efter tall. &lt;br /&gt;
-Oj, en björk. &lt;br /&gt;
-Sen tall, gran, tall, björk, asp, och mer tall. &lt;br /&gt;
-Och mer gran. &lt;br /&gt;
-Och kalhygge förstås.&lt;/p&gt;
-
-&lt;p&gt;Senare på väg tillbaka i den låga solen – &lt;br /&gt;
-rakt in i ögonen skärande – &lt;br /&gt;
-förblindar vindrutesmutsen. &lt;br /&gt;
-Men den första slåttern har redan skett. &lt;br /&gt;
-Under skymningsglöden sjunger bergen över mig, &lt;br /&gt;
-medan livet &lt;br /&gt;
-och myggbetten kliar.&lt;/p&gt;</content><author><name>Samuel Gulliksson</name></author><category term="text" /><summary type="html">Längs en väg som aldrig tar slut, över ett lapptäcke av mörk och ljus asfaltslagning. Så dånar den nya gamla sommarbilen förbi idyllen med ängsblom och svartvitfläckiga kor, i myggsvärmar och kall juni.</summary></entry></feed>
+spricker det upp till sol.&lt;/p&gt;</content><author><name>Samuel Gulliksson</name></author><category term="text" /><summary type="html">När natten tynger lättar mörkret ankar. En storm genom allt som är jag sliter i alla trasiga trådar som håller ihop mig.</summary></entry></feed>

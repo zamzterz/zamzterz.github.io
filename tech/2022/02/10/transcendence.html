@@ -1,0 +1,305 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Transcendence: Behind the scenes - Samuel Gulliksson</title>
+<meta name="description" content="The “Transcendence” project was an exploration of applying technology to personal data in the form of face portrait images and recorded voice samples. This post describes some of the tech used to build it.">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Samuel Gulliksson">
+<meta property="og:title" content="Transcendence: Behind the scenes">
+<meta property="og:url" content="/tech/2022/02/10/transcendence.html">
+
+
+  <meta property="og:description" content="The “Transcendence” project was an exploration of applying technology to personal data in the form of face portrait images and recorded voice samples. This post describes some of the tech used to build it.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2022-02-10T00:00:00+01:00">
+
+
+
+
+
+
+<link rel="canonical" href="/tech/2022/02/10/transcendence.html">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Samuel Gulliksson",
+      "url": "/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Samuel Gulliksson
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/text">Text</a>
+            </li><li class="masthead__menu-item">
+              <a href="/art">Art</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tech">Tech</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Transcendence: Behind the scenes">
+    <meta itemprop="description" content="The “Transcendence” projectwas an exploration of applying technology to personal data in the form of face portrait images and recorded voice samples.This post describes some of the tech used to build it.">
+    <meta itemprop="datePublished" content="2022-02-10T00:00:00+01:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Transcendence: Behind the scenes
+</h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-02-10T00:00:00+01:00">February 10, 2022</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>The <a href="/art/2022/02/01/transcendence.html">“Transcendence” project</a>
+was an exploration of applying technology to personal data in the form of face portrait images and recorded voice samples.
+This post describes some of the tech used to build it.</p>
+
+<h2 id="data-analysis">Data analysis</h2>
+<p>The two different data sets — 1 set of images, 1 set of audio recordings — was processed using two libraries:
+<a href="https://github.com/justadudewhohacks/face-api.js/"><code class="language-plaintext highlighter-rouge">face-api.js</code></a> and <a href="https://github.com/peterkhayes/pitchfinder"><code class="language-plaintext highlighter-rouge">pitchfinder</code></a> respectively.</p>
+
+<p>Turns out both operations could take noticeable time to complete (on the order of tens of seconds), given large enough input sizes.
+In Chrome and Firefox this was not noticeable, but in Safari (as usual…) the UI would freeze and the pretty spinning loader would not actually be shown.
+(Presumably because it <a href="https://stackoverflow.com/a/66165276">doesn’t repaint while being busy</a> with the long running task?)</p>
+
+<p>To get around this I turned to <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API">Web Workers</a>,
+trying to shift all that heavy computing out of the main thread.
+Everything was a smooth ride for the audio processing.
+Not so much for the face detection —
+getting <code class="language-plaintext highlighter-rouge">face-api.js</code> to work in a Web Worker seemed to be an impossible task (or at least too time consuming for this simple proof-of-concept)
+despite <a href="https://github.com/justadudewhohacks/face-api.js/issues/47">claims of working examples</a>.
+However, the basic (blocking) implementation is shown below.</p>
+
+<p>Supporting multi upload, a set of images can be analysed to detect any contained face and extract information about the identified features of the face (face landmarks), estimated age and gender:</p>
+
+<iframe src="/code-examples/index.html?url=/code-examples/2022-02-10-transcendence/image-analysis&amp;tab=js" loading="lazy" width="100%" height="350"></iframe>
+
+<p>Similarly, a pitch detection algorithm was applied to the audio recordings, which samples the audio data and returns the detected frequencies:</p>
+
+<iframe src="/code-examples/index.html?url=/code-examples/2022-02-10-transcendence/audio-analysis&amp;tab=js" loading="lazy" width="100%" height="250"></iframe>
+
+<p><a href="/code-examples/2022-02-10-transcendence/audio-analysis/frequencyDetector.js">Web Worker code</a></p>
+
+<p><em><strong>Note:</strong> The results are printed in the Javascript console.</em></p>
+
+<h2 id="data-visualization">Data visualization</h2>
+
+<p>The extracted data was visualized using <a href="https://www.chartjs.org/"><code class="language-plaintext highlighter-rouge">Chart.js</code></a>.
+Some of the noteworthy features utilized:</p>
+<ul>
+  <li>Using a <a href="(https://www.chartjs.org/docs/3.7.0/samples/advanced/linear-gradient.html)">gradient as line color</a> (used for visualizing the binary gender classifications).</li>
+  <li>The <a href="https://www.chartjs.org/chartjs-plugin-annotation/latest/">annotation plugin</a> for drawing horizontal lines and boxes (used for example to show the average male and female voice ranges).</li>
+  <li>The <a href="https://github.com/sgratzl/chartjs-chart-boxplot">boxplot plugin</a> for showing the five-number summary for a set of values (used for visualizing the voice frequency data).</li>
+</ul>
+
+<h2 id="text-to-speech">Text-to-speech</h2>
+
+<p>The poem
+<a href="/art/transcendence/data/not_my_voice.mp3">“This is not my voice”</a>
+was rendered using <a href="https://azure.microsoft.com/en-us/services/cognitive-services/text-to-speech/#overview">Azure Text to Speech</a>.</p>
+
+<p>It has a nice variety of voices and offers a <a href="https://speech.microsoft.com/audiocontentcreation">graphical web interface</a>
+for editing the audio content (while also supporting raw <a href="https://en.wikipedia.org/wiki/Speech_Synthesis_Markup_Language">SSML</a>).</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-02-10T00:00:00+01:00">February 10, 2022</time></p>
+
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/tech/2021/12/21/vscode-pdf.html" class="pagination--pager" title="Preserving current page number with vscode-pdf">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://github.com/zamzterz" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 Samuel Gulliksson. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

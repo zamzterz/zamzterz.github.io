@@ -58,4 +58,10 @@ var store = [{
         "tags": [],
         "url": "/art/2022/02/01/transcendence.html",
         "teaser": null
+      },{
+        "title": "Transcendence: Behind the scenes",
+        "excerpt":"The “Transcendence” project was an exploration of applying technology to personal data in the form of face portrait images and recorded voice samples. This post describes some of the tech used to build it. Data analysis The two different data sets — 1 set of images, 1 set of audio...","categories": ["tech"],
+        "tags": [],
+        "url": "/tech/2022/02/10/transcendence.html",
+        "teaser": null
       }]
