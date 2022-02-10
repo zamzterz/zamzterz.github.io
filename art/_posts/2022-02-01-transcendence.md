@@ -35,4 +35,6 @@ using synthesized speech and animation — freeing the self from body and langua
     <li>116 weekly portrait images of my face without glasses captured with mobile camera.</li>
     <li>58 recurring (weekly and later monthly) voice recordings captured on mobile phone.</li>
     </ul>
+
+    A description of the technology used to built this can be found <a href="{% link tech/_posts/2022-02-10-transcendence.md %}">here</a>.
 </div>
