@@ -1,4 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2022-02-10T21:27:43+01:00</updated><id>/feed.xml</id><title type="html">Samuel Gulliksson</title><entry><title type="html">Transcendence: Behind the scenes</title><link href="/tech/2022/02/10/transcendence.html" rel="alternate" type="text/html" title="Transcendence: Behind the scenes" /><published>2022-02-10T00:00:00+01:00</published><updated>2022-02-10T00:00:00+01:00</updated><id>/tech/2022/02/10/transcendence</id><content type="html" xml:base="/tech/2022/02/10/transcendence.html">&lt;p&gt;The &lt;a href=&quot;/art/2022/02/01/transcendence.html&quot;&gt;“Transcendence” project&lt;/a&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2022-02-19T18:09:28+01:00</updated><id>/feed.xml</id><title type="html">Samuel Gulliksson</title><entry><title type="html">Jag skriver</title><link href="/text/2022/02/19/jag-skriver.html" rel="alternate" type="text/html" title="Jag skriver" /><published>2022-02-19T00:00:00+01:00</published><updated>2022-02-19T00:00:00+01:00</updated><id>/text/2022/02/19/jag-skriver</id><content type="html" xml:base="/text/2022/02/19/jag-skriver.html">&lt;p&gt;Med något stram stilistik &lt;br /&gt;
+beaktar jag oftast ordens ballistik. &lt;br /&gt;
+Jag bryr mig om hur orden flyger och landar, &lt;br /&gt;
+inte så mycket om vad texten egentligen handlar.&lt;/p&gt;
+
+&lt;p&gt;Jag älskar det annorlunda, alla bokstavslösa tecken, &lt;br /&gt;
+alla semikolon, parenteser och de allra vackraste – tankstrecken! &lt;br /&gt;
+Allt för att slippa komma, till punkten där inget mer blir sagt. &lt;br /&gt;
+Jag river, jag svettas; det är faktiskt en ganska våldsam kärleksakt.&lt;/p&gt;
+
+&lt;p&gt;Fylld med radbryt och psykbryt – ja, jag blir exalterad &lt;br /&gt;
+när orden passar och jag framstår som välformulerad. &lt;br /&gt;
+För min form är mitt jag, och här står den kort och koncis, &lt;br /&gt;
+men kanske kommer den en dag bli vackrare och ännu mer precis.&lt;/p&gt;</content><author><name>Samuel Gulliksson</name></author><category term="text" /><summary type="html">Med något stram stilistik beaktar jag oftast ordens ballistik. Jag bryr mig om hur orden flyger och landar, inte så mycket om vad texten egentligen handlar.</summary></entry><entry><title type="html">Transcendence: Behind the scenes</title><link href="/tech/2022/02/10/transcendence.html" rel="alternate" type="text/html" title="Transcendence: Behind the scenes" /><published>2022-02-10T00:00:00+01:00</published><updated>2022-02-10T00:00:00+01:00</updated><id>/tech/2022/02/10/transcendence</id><content type="html" xml:base="/tech/2022/02/10/transcendence.html">&lt;p&gt;The &lt;a href=&quot;/art/2022/02/01/transcendence.html&quot;&gt;“Transcendence” project&lt;/a&gt;
 was an exploration of applying technology to personal data in the form of face portrait images and recorded voice samples.
 This post describes some of the tech used to build it.&lt;/p&gt;
 
@@ -289,23 +302,4 @@ I skärningspunkten mellan text och konst får betraktaren istället själv väl
 För bästa upplevelse använd en uppdaterad webbläsare och landskapsläge på mindre enheter.
 En beskrivning av tekniken som använts för att skapa detta finns
 &lt;a href=&quot;/tech/2021/12/01/moving-poetry.html&quot;&gt;här&lt;/a&gt; (på engelska).
-&lt;/small&gt;&lt;/p&gt;</content><author><name>Samuel Gulliksson</name></author><category term="art" /><summary type="html">Saker som rör sig i ögonvrån, uppstår och försvinner - mystiskt och spännande. Det finns ingen rätt väg, bara förslag på stigar genom bokstäver, ord och rader. Så gå på upptäcktsfärd, precis som i skogen: Moving poetry: Skogsvandring</summary></entry><entry><title type="html">När natten tynger</title><link href="/text/2021/09/15/n%C3%A4r-natten-tynger.html" rel="alternate" type="text/html" title="När natten tynger" /><published>2021-09-15T00:00:00+02:00</published><updated>2021-09-15T00:00:00+02:00</updated><id>/text/2021/09/15/n%C3%A4r-natten-tynger</id><content type="html" xml:base="/text/2021/09/15/n%C3%A4r-natten-tynger.html">&lt;p&gt;När natten tynger &lt;br /&gt;
-lättar mörkret ankar. &lt;br /&gt;
-En storm genom allt som är &lt;br /&gt;
-jag sliter i alla trasiga trådar &lt;br /&gt;
-som håller ihop mig.&lt;/p&gt;
-
-&lt;p&gt;Tyngd av &lt;br /&gt;
-ånger och sten &lt;br /&gt;
-ånger och sten &lt;br /&gt;
-ånger och sten &lt;br /&gt;
-ångesten. &lt;br /&gt;
-Jag dras till djup &lt;br /&gt;
-djupare &lt;br /&gt;
-än Marianergraven.&lt;/p&gt;
-
-&lt;p&gt;Men jag vänder om &lt;br /&gt;
-till värmen från din rygg. &lt;br /&gt;
-I lä från striden &lt;br /&gt;
-i mina sömmar &lt;br /&gt;
-spricker det upp till sol.&lt;/p&gt;</content><author><name>Samuel Gulliksson</name></author><category term="text" /><summary type="html">När natten tynger lättar mörkret ankar. En storm genom allt som är jag sliter i alla trasiga trådar som håller ihop mig.</summary></entry></feed>
+&lt;/small&gt;&lt;/p&gt;</content><author><name>Samuel Gulliksson</name></author><category term="art" /><summary type="html">Saker som rör sig i ögonvrån, uppstår och försvinner - mystiskt och spännande. Det finns ingen rätt väg, bara förslag på stigar genom bokstäver, ord och rader. Så gå på upptäcktsfärd, precis som i skogen: Moving poetry: Skogsvandring</summary></entry></feed>

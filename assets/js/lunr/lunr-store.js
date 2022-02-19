@@ -64,4 +64,10 @@ var store = [{
         "tags": [],
         "url": "/tech/2022/02/10/transcendence.html",
         "teaser": null
+      },{
+        "title": "Jag skriver",
+        "excerpt":"Med något stram stilistik beaktar jag oftast ordens ballistik. Jag bryr mig om hur orden flyger och landar, inte så mycket om vad texten egentligen handlar. Jag älskar det annorlunda, alla bokstavslösa tecken, alla semikolon, parenteser och de allra vackraste – tankstrecken! Allt för att slippa komma, till punkten där...","categories": ["text"],
+        "tags": [],
+        "url": "/text/2022/02/19/jag-skriver.html",
+        "teaser": null
       }]
