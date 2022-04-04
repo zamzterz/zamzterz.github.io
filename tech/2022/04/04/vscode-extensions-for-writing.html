@@ -9,16 +9,19 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Samuel Gulliksson</title>
-<meta name="description" content="">
+<!-- begin _includes/seo.html --><title>Visual Studio Code Extensions for Writing - Samuel Gulliksson</title>
+<meta name="description" content="Having delved deeper into the world of (creative) writing during the past year, I had to incorporate some coding into my routine as well (to not got crazy). As I ended up doing all my writing in VSCode, and I’m not the only one (1, 2, 3, etc.), it meant I could create some hopefully useful extensions for fun and profit.">
 
 
 
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Samuel Gulliksson">
-<meta property="og:title" content="Samuel Gulliksson">
-<meta property="og:url" content="/tech/">
+<meta property="og:title" content="Visual Studio Code Extensions for Writing">
+<meta property="og:url" content="/tech/2022/04/04/vscode-extensions-for-writing.html">
+
+
+  <meta property="og:description" content="Having delved deeper into the world of (creative) writing during the past year, I had to incorporate some coding into my routine as well (to not got crazy). As I ended up doing all my writing in VSCode, and I’m not the only one (1, 2, 3, etc.), it meant I could create some hopefully useful extensions for fun and profit.">
 
 
 
@@ -26,13 +29,14 @@
 
 
 
+  <meta property="article:published_time" content="2022-04-04T00:00:00+02:00">
 
 
 
 
 
 
-<link rel="canonical" href="/tech/">
+<link rel="canonical" href="/tech/2022/04/04/vscode-extensions-for-writing.html">
 
 
 
@@ -81,7 +85,7 @@
 
   </head>
 
-  <body class="layout--single">
+  <body class="layout--single wide">
     <nav class="skip-links">
   <ul>
     <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
@@ -134,16 +138,32 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    
-    
+    <meta itemprop="headline" content="Visual Studio Code Extensions for Writing">
+    <meta itemprop="description" content="Having delved deeper into the world of (creative) writing during the past year,I had to incorporate some coding into my routine as well (to not got crazy).As I ended up doing all my writing in VSCode,and I’m not the only one(1,2,3,etc.),it meant I could create some hopefully usefulextensionsfor fun and profit.">
+    <meta itemprop="datePublished" content="2022-04-04T00:00:00+02:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Visual Studio Code Extensions for Writing
+</h1>
           
-          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-04-04T00:00:00+02:00">April 4, 2022</time>
+      </span>
+    
+
+    
+
+    
+  </p>
 
 
         </header>
@@ -151,15 +171,6 @@
 
       <section class="page__content" itemprop="text">
         
-        <h2 id="recent">Recent</h2>
-<ul>
-    
-        <div class="single-post">
-    <h3>
-        <a href="/tech/2022/04/04/vscode-extensions-for-writing.html">Visual Studio Code Extensions for Writing</a>
-    </h3>
-    <div class="post-meta">04 Apr 2022<br /><code></code></div>
-    <div class="post-excerpt">
         <p>Having delved deeper into the world of (creative) writing during the past year,
 I had to incorporate some coding into my routine as well (to not got crazy).
 As I ended up doing all my writing in VSCode,
@@ -172,54 +183,33 @@ it meant I could create some hopefully useful
 <a href="https://code.visualstudio.com/api">extensions</a>
 for fun and profit.</p>
 
-        <a class="post-more-link" href="/tech/2022/04/04/vscode-extensions-for-writing.html">... »</a>
-    </div>
-</div>
+<p>That’s how <a href="https://github.com/zamzterz/vscode-writing-suite"><code class="language-plaintext highlighter-rouge">vscode-writing-suite</code></a> was born.
+It’s an umbrella project containing multiple independent VSCode extensions –
+in the spirit of the Unix philosophy: “Make each program do one thing well.” –
+intended to help when writing text (specifically tailored to my writing process, of course):</p>
 
-    
-        <div class="single-post">
-    <h3>
-        <a href="/tech/2022/02/10/transcendence.html">Transcendence: Behind the scenes</a>
-    </h3>
-    <div class="post-meta">10 Feb 2022<br /><code></code></div>
-    <div class="post-excerpt">
-        <p>The <a href="/art/2022/02/01/transcendence.html">“Transcendence” project</a>
-was an exploration of applying technology to personal data in the form of face portrait images and recorded voice samples.
-This post describes some of the tech used to build it.</p>
+<p>First up is a simple Pomodoro timer with the addition of a word count tracker for the work time:</p>
+<blockquote>
 
-        <a class="post-more-link" href="/tech/2022/02/10/transcendence.html">... »</a>
-    </div>
-</div>
+  <p><a href="https://github.com/zamzterz/vscode-writing-suite/tree/main/pomodoro-writer">Pomodoro Writer</a>
+helps with hitting your word count goal by showing how many words you have left to write.</p>
+</blockquote>
 
-    
-        <div class="single-post">
-    <h3>
-        <a href="/tech/2021/12/21/vscode-pdf.html">Preserving current page number with vscode-pdf</a>
-    </h3>
-    <div class="post-meta">21 Dec 2021<br /><code>open-source</code></div>
-    <div class="post-excerpt">
-        <p>I’m using the VS Code extension
-<a href="https://marketplace.visualstudio.com/items?itemName=tomoki1207.pdf">vscode-pdf</a>,
-which under the hood uses
-<a href="https://mozilla.github.io/pdf.js/">PDF.js</a>
-to render PDF files in a Webview within VS Code.
-After loading, the extension watches the opened PDF file for changes
-and if it detects any it reloads the file.
-This is a great feature, except as reported in a
-<a href="https://github.com/tomoki1207/vscode-pdfviewer/issues/118">Github issue</a>
-it causes the PDF view to jump to the top of the file on reload.
-This is not so great if you’re automatically (re)generating the PDF
-from for example a Latex document and want to quickly be able to see your changes
-(which is exactly what I do when editing my fiction writing).</p>
+<p>Next is an outline visualizer that collates and displays the synopsis of a writing project:</p>
+<blockquote>
 
-        <a class="post-more-link" href="/tech/2021/12/21/vscode-pdf.html">... »</a>
-    </div>
-</div>
+  <p><a href="https://github.com/zamzterz/vscode-writing-suite/tree/main/outline-writer">Outline Writer</a>
+provides an overview of the entire text, allowing to get a grasp of the structure at a glance.</p>
+</blockquote>
 
-    
-</ul>
+<h2 id="small-note-on-the-use-of-a-monorepo">Small note on the use of a monorepo</h2>
+<p>For no other reason than “code colocation”,
+I opted to put the two different extensions in the same Github repository.</p>
 
-<p><a href="archive">More…</a></p>
+<p>Turns out using Github Actions makes it a breeze
+to still have completely separate workflows for each extension,
+only triggering the CI workflow for an extension
+<a href="https://github.com/zamzterz/vscode-writing-suite/blob/main/.github/workflows/ci-outline-writer.yml#L5-L14">when files in that directory was changed</a>.</p>
 
         
       </section>
@@ -231,12 +221,23 @@ from for example a Latex document and want to quickly be able to see your change
 
         
 
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-04-04T00:00:00+02:00">April 4, 2022</time></p>
+
 
       </footer>
 
       
 
       
+  <nav class="pagination">
+    
+      <a href="/tech/2022/02/10/transcendence.html" class="pagination--pager" title="Transcendence: Behind the scenes">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
 
     </div>
 

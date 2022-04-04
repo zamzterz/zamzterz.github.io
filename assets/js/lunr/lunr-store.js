@@ -70,4 +70,10 @@ var store = [{
         "tags": [],
         "url": "/text/2022/02/19/jag-skriver.html",
         "teaser": null
+      },{
+        "title": "Visual Studio Code Extensions for Writing",
+        "excerpt":"Having delved deeper into the world of (creative) writing during the past year, I had to incorporate some coding into my routine as well (to not got crazy). As I ended up doing all my writing in VSCode, and I’m not the only one (1, 2, 3, etc.), it meant...","categories": ["tech"],
+        "tags": [],
+        "url": "/tech/2022/04/04/vscode-extensions-for-writing.html",
+        "teaser": null
       }]

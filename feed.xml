@@ -1,4 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2022-02-19T18:09:28+01:00</updated><id>/feed.xml</id><title type="html">Samuel Gulliksson</title><entry><title type="html">Jag skriver</title><link href="/text/2022/02/19/jag-skriver.html" rel="alternate" type="text/html" title="Jag skriver" /><published>2022-02-19T00:00:00+01:00</published><updated>2022-02-19T00:00:00+01:00</updated><id>/text/2022/02/19/jag-skriver</id><content type="html" xml:base="/text/2022/02/19/jag-skriver.html">&lt;p&gt;Med något stram stilistik &lt;br /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2022-04-04T10:21:26+02:00</updated><id>/feed.xml</id><title type="html">Samuel Gulliksson</title><entry><title type="html">Visual Studio Code Extensions for Writing</title><link href="/tech/2022/04/04/vscode-extensions-for-writing.html" rel="alternate" type="text/html" title="Visual Studio Code Extensions for Writing" /><published>2022-04-04T00:00:00+02:00</published><updated>2022-04-04T00:00:00+02:00</updated><id>/tech/2022/04/04/vscode-extensions-for-writing</id><content type="html" xml:base="/tech/2022/04/04/vscode-extensions-for-writing.html">&lt;p&gt;Having delved deeper into the world of (creative) writing during the past year,
+I had to incorporate some coding into my routine as well (to not got crazy).
+As I ended up doing all my writing in VSCode,
+and I’m not the only one
+(&lt;a href=&quot;https://hackernoon.com/customizing-visual-studio-code-for-writing-2e6e621e069e&quot;&gt;1&lt;/a&gt;,
+&lt;a href=&quot;https://levelup.gitconnected.com/turn-vs-code-into-the-perfect-writing-tool-a22a136e4360&quot;&gt;2&lt;/a&gt;,
+&lt;a href=&quot;https://jay-penner.medium.com/writing-novels-and-non-fiction-with-visual-studio-code-6d6ccd1561a5&quot;&gt;3&lt;/a&gt;,
+etc.),
+it meant I could create some hopefully useful
+&lt;a href=&quot;https://code.visualstudio.com/api&quot;&gt;extensions&lt;/a&gt;
+for fun and profit.&lt;/p&gt;
+
+&lt;p&gt;That’s how &lt;a href=&quot;https://github.com/zamzterz/vscode-writing-suite&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;vscode-writing-suite&lt;/code&gt;&lt;/a&gt; was born.
+It’s an umbrella project containing multiple independent VSCode extensions –
+in the spirit of the Unix philosophy: “Make each program do one thing well.” –
+intended to help when writing text (specifically tailored to my writing process, of course):&lt;/p&gt;
+
+&lt;p&gt;First up is a simple Pomodoro timer with the addition of a word count tracker for the work time:&lt;/p&gt;
+&lt;blockquote&gt;
+
+  &lt;p&gt;&lt;a href=&quot;https://github.com/zamzterz/vscode-writing-suite/tree/main/pomodoro-writer&quot;&gt;Pomodoro Writer&lt;/a&gt;
+helps with hitting your word count goal by showing how many words you have left to write.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Next is an outline visualizer that collates and displays the synopsis of a writing project:&lt;/p&gt;
+&lt;blockquote&gt;
+
+  &lt;p&gt;&lt;a href=&quot;https://github.com/zamzterz/vscode-writing-suite/tree/main/outline-writer&quot;&gt;Outline Writer&lt;/a&gt;
+provides an overview of the entire text, allowing to get a grasp of the structure at a glance.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;small-note-on-the-use-of-a-monorepo&quot;&gt;Small note on the use of a monorepo&lt;/h2&gt;
+&lt;p&gt;For no other reason than “code colocation”,
+I opted to put the two different extensions in the same Github repository.&lt;/p&gt;
+
+&lt;p&gt;Turns out using Github Actions makes it a breeze
+to still have completely separate workflows for each extension,
+only triggering the CI workflow for an extension
+&lt;a href=&quot;https://github.com/zamzterz/vscode-writing-suite/blob/main/.github/workflows/ci-outline-writer.yml#L5-L14&quot;&gt;when files in that directory was changed&lt;/a&gt;.&lt;/p&gt;</content><author><name>Samuel Gulliksson</name></author><category term="tech" /><summary type="html">Having delved deeper into the world of (creative) writing during the past year, I had to incorporate some coding into my routine as well (to not got crazy). As I ended up doing all my writing in VSCode, and I’m not the only one (1, 2, 3, etc.), it meant I could create some hopefully useful extensions for fun and profit.</summary></entry><entry><title type="html">Jag skriver</title><link href="/text/2022/02/19/jag-skriver.html" rel="alternate" type="text/html" title="Jag skriver" /><published>2022-02-19T00:00:00+01:00</published><updated>2022-02-19T00:00:00+01:00</updated><id>/text/2022/02/19/jag-skriver</id><content type="html" xml:base="/text/2022/02/19/jag-skriver.html">&lt;p&gt;Med något stram stilistik &lt;br /&gt;
 beaktar jag oftast ordens ballistik. &lt;br /&gt;
 Jag bryr mig om hur orden flyger och landar, &lt;br /&gt;
 inte så mycket om vad texten egentligen handlar.&lt;/p&gt;
@@ -115,23 +153,7 @@ frusna händer&lt;/p&gt;
 
 &lt;p&gt;vinkar vi skimrande &lt;br /&gt;
 adjö till modern &lt;br /&gt;
-som lämnat oss här&lt;/p&gt;</content><author><name>Samuel Gulliksson</name></author><category term="text" /><summary type="html">i det inre landet flyter älven förbi det klara vattnet</summary></entry><entry><title type="html">Avoid iframe navigation affecting browser history</title><link href="/tech/2021/12/21/indiepen-iframe-fix.html" rel="alternate" type="text/html" title="Avoid iframe navigation affecting browser history" /><published>2021-12-21T00:00:00+01:00</published><updated>2021-12-21T00:00:00+01:00</updated><id>/tech/2021/12/21/indiepen-iframe-fix</id><content type="html" xml:base="/tech/2021/12/21/indiepen-iframe-fix.html">&lt;p&gt;This blog uses
-&lt;a href=&quot;/tech/2021/12/11/indiepen.html&quot;&gt;Indiepen for code examples&lt;/a&gt;.
-It was working fine in Chrome,
-but testing in Firefox showed something strange when navigating to &lt;a href=&quot;/tech/2021/12/01/moving-poetry.html&quot;&gt;this post&lt;/a&gt;:
-clicking the back button didn’t seem to have any effect.
-Not until after repeated clicks on the back button would the browser navigate back to a previous page.&lt;/p&gt;
-
-&lt;p&gt;Turns out the embedded Indiepen iframe’s were to blame:
-setting the iframe &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;src&lt;/code&gt; attribute will add an entry to the browser history,
-and that’s exactly what Indiepen does to show the rendered result of a code example.
-Since that particular blog posts contains multiple embedded Indiepen iframe’s
-it required multiple clicks on the browser back button, one for each embedded iframe.&lt;/p&gt;
-
-&lt;p&gt;The solution is to use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;frame&amp;gt;.contentWindow.location.replace(url)&lt;/code&gt;
-instead of assigning directly to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;frame&amp;gt;.src = url&lt;/code&gt;.
-I’ve contributed &lt;a href=&quot;https://github.com/yetanother-blog/indiepen/pull/121&quot;&gt;a fix&lt;/a&gt;
-which has been merged. 🎉&lt;/p&gt;</content><author><name>Samuel Gulliksson</name></author><category term="tech" /><category term="open-source" /><summary type="html">This blog uses Indiepen for code examples. It was working fine in Chrome, but testing in Firefox showed something strange when navigating to this post: clicking the back button didn’t seem to have any effect. Not until after repeated clicks on the back button would the browser navigate back to a previous page.</summary></entry><entry><title type="html">Preserving current page number with vscode-pdf</title><link href="/tech/2021/12/21/vscode-pdf.html" rel="alternate" type="text/html" title="Preserving current page number with vscode-pdf" /><published>2021-12-21T00:00:00+01:00</published><updated>2021-12-21T00:00:00+01:00</updated><id>/tech/2021/12/21/vscode-pdf</id><content type="html" xml:base="/tech/2021/12/21/vscode-pdf.html">&lt;p&gt;I’m using the VS Code extension
+som lämnat oss här&lt;/p&gt;</content><author><name>Samuel Gulliksson</name></author><category term="text" /><summary type="html">i det inre landet flyter älven förbi det klara vattnet</summary></entry><entry><title type="html">Preserving current page number with vscode-pdf</title><link href="/tech/2021/12/21/vscode-pdf.html" rel="alternate" type="text/html" title="Preserving current page number with vscode-pdf" /><published>2021-12-21T00:00:00+01:00</published><updated>2021-12-21T00:00:00+01:00</updated><id>/tech/2021/12/21/vscode-pdf</id><content type="html" xml:base="/tech/2021/12/21/vscode-pdf.html">&lt;p&gt;I’m using the VS Code extension
 &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=tomoki1207.pdf&quot;&gt;vscode-pdf&lt;/a&gt;,
 which under the hood uses
 &lt;a href=&quot;https://mozilla.github.io/pdf.js/&quot;&gt;PDF.js&lt;/a&gt;
@@ -153,7 +175,23 @@ Instead I figured it should be possible to grab the current page number,
 reload the PDF file, and then reset the page number to the previous value.
 Turns out that did work, and a
 &lt;a href=&quot;https://github.com/tomoki1207/vscode-pdfviewer/pull/121&quot;&gt;fix&lt;/a&gt;
-was released in version &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1.2.0&lt;/code&gt; of vscode-pdf.&lt;/p&gt;</content><author><name>Samuel Gulliksson</name></author><category term="tech" /><category term="open-source" /><summary type="html">I’m using the VS Code extension vscode-pdf, which under the hood uses PDF.js to render PDF files in a Webview within VS Code. After loading, the extension watches the opened PDF file for changes and if it detects any it reloads the file. This is a great feature, except as reported in a Github issue it causes the PDF view to jump to the top of the file on reload. This is not so great if you’re automatically (re)generating the PDF from for example a Latex document and want to quickly be able to see your changes (which is exactly what I do when editing my fiction writing).</summary></entry><entry><title type="html">Using Indiepen for embedded code examples</title><link href="/tech/2021/12/11/indiepen.html" rel="alternate" type="text/html" title="Using Indiepen for embedded code examples" /><published>2021-12-11T00:00:00+01:00</published><updated>2021-12-11T00:00:00+01:00</updated><id>/tech/2021/12/11/indiepen</id><content type="html" xml:base="/tech/2021/12/11/indiepen.html">&lt;p&gt;While documenting the
+was released in version &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1.2.0&lt;/code&gt; of vscode-pdf.&lt;/p&gt;</content><author><name>Samuel Gulliksson</name></author><category term="tech" /><category term="open-source" /><summary type="html">I’m using the VS Code extension vscode-pdf, which under the hood uses PDF.js to render PDF files in a Webview within VS Code. After loading, the extension watches the opened PDF file for changes and if it detects any it reloads the file. This is a great feature, except as reported in a Github issue it causes the PDF view to jump to the top of the file on reload. This is not so great if you’re automatically (re)generating the PDF from for example a Latex document and want to quickly be able to see your changes (which is exactly what I do when editing my fiction writing).</summary></entry><entry><title type="html">Avoid iframe navigation affecting browser history</title><link href="/tech/2021/12/21/indiepen-iframe-fix.html" rel="alternate" type="text/html" title="Avoid iframe navigation affecting browser history" /><published>2021-12-21T00:00:00+01:00</published><updated>2021-12-21T00:00:00+01:00</updated><id>/tech/2021/12/21/indiepen-iframe-fix</id><content type="html" xml:base="/tech/2021/12/21/indiepen-iframe-fix.html">&lt;p&gt;This blog uses
+&lt;a href=&quot;/tech/2021/12/11/indiepen.html&quot;&gt;Indiepen for code examples&lt;/a&gt;.
+It was working fine in Chrome,
+but testing in Firefox showed something strange when navigating to &lt;a href=&quot;/tech/2021/12/01/moving-poetry.html&quot;&gt;this post&lt;/a&gt;:
+clicking the back button didn’t seem to have any effect.
+Not until after repeated clicks on the back button would the browser navigate back to a previous page.&lt;/p&gt;
+
+&lt;p&gt;Turns out the embedded Indiepen iframe’s were to blame:
+setting the iframe &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;src&lt;/code&gt; attribute will add an entry to the browser history,
+and that’s exactly what Indiepen does to show the rendered result of a code example.
+Since that particular blog posts contains multiple embedded Indiepen iframe’s
+it required multiple clicks on the browser back button, one for each embedded iframe.&lt;/p&gt;
+
+&lt;p&gt;The solution is to use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;frame&amp;gt;.contentWindow.location.replace(url)&lt;/code&gt;
+instead of assigning directly to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;frame&amp;gt;.src = url&lt;/code&gt;.
+I’ve contributed &lt;a href=&quot;https://github.com/yetanother-blog/indiepen/pull/121&quot;&gt;a fix&lt;/a&gt;
+which has been merged. 🎉&lt;/p&gt;</content><author><name>Samuel Gulliksson</name></author><category term="tech" /><category term="open-source" /><summary type="html">This blog uses Indiepen for code examples. It was working fine in Chrome, but testing in Firefox showed something strange when navigating to this post: clicking the back button didn’t seem to have any effect. Not until after repeated clicks on the back button would the browser navigate back to a previous page.</summary></entry><entry><title type="html">Using Indiepen for embedded code examples</title><link href="/tech/2021/12/11/indiepen.html" rel="alternate" type="text/html" title="Using Indiepen for embedded code examples" /><published>2021-12-11T00:00:00+01:00</published><updated>2021-12-11T00:00:00+01:00</updated><id>/tech/2021/12/11/indiepen</id><content type="html" xml:base="/tech/2021/12/11/indiepen.html">&lt;p&gt;While documenting the
 &lt;a href=&quot;/tech/2021/12/01/moving-poetry.html&quot;&gt;technical details of the “Moving poetry” project&lt;/a&gt;
 I needed to include structured code examples that would also be rendered to show the described results.
 Many hosted alternatives exist,
@@ -290,16 +328,4 @@ before the child element itself is transformed.&lt;/p&gt;
   &lt;li&gt;If you really need to customize the animations based on for example screen size,
 &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries&quot;&gt;media queries&lt;/a&gt; can be used in Javascript via
 &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia&quot;&gt;matchMedia&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Samuel Gulliksson</name></author><category term="tech" /><summary type="html">The “Moving poetry” project (Swedish only) was an exploration of text and technology. This post describes some of the nifty Javascript (and CSS) tricks used to build it.</summary></entry><entry><title type="html">Moving poetry: Skogsvandring</title><link href="/art/2021/11/10/moving-poetry-skogsvandring.html" rel="alternate" type="text/html" title="Moving poetry: Skogsvandring" /><published>2021-11-10T00:00:00+01:00</published><updated>2021-11-10T00:00:00+01:00</updated><id>/art/2021/11/10/moving-poetry-skogsvandring</id><content type="html" xml:base="/art/2021/11/10/moving-poetry-skogsvandring.html">&lt;p&gt;Saker som rör sig i ögonvrån, uppstår och försvinner - mystiskt och spännande.
-Det finns ingen rätt väg, bara förslag på stigar genom bokstäver, ord och rader.
-Så gå på upptäcktsfärd, precis som i skogen: &lt;a href=&quot;/art/moving-poetry&quot;&gt;Moving poetry: Skogsvandring&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;“Moving poetry: Skogsvandring” utforskar dynamisk poesi i en lek med text och teknik för att skapa konst(igheter).
-Omkastade rader, anagram och andra konstruktioner utmanar idén om att text behöver läsas enligt sin struktur på den tryckta sidan.
-I skärningspunkten mellan text och konst får betraktaren istället själv välja sin egen läsning.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;small&gt;
-För bästa upplevelse använd en uppdaterad webbläsare och landskapsläge på mindre enheter.
-En beskrivning av tekniken som använts för att skapa detta finns
-&lt;a href=&quot;/tech/2021/12/01/moving-poetry.html&quot;&gt;här&lt;/a&gt; (på engelska).
-&lt;/small&gt;&lt;/p&gt;</content><author><name>Samuel Gulliksson</name></author><category term="art" /><summary type="html">Saker som rör sig i ögonvrån, uppstår och försvinner - mystiskt och spännande. Det finns ingen rätt väg, bara förslag på stigar genom bokstäver, ord och rader. Så gå på upptäcktsfärd, precis som i skogen: Moving poetry: Skogsvandring</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>Samuel Gulliksson</name></author><category term="tech" /><summary type="html">The “Moving poetry” project (Swedish only) was an exploration of text and technology. This post describes some of the nifty Javascript (and CSS) tricks used to build it.</summary></entry></feed>
