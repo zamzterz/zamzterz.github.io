@@ -1,0 +1,327 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Creating an Audio Player Component - Samuel Gulliksson</title>
+<meta name="description" content="One element of “Transcendence: A Visionary Truth” is an audio clip (generated via speech synthesis). To make it look nicer than the default controls of each browser I created a very basic audio player with just a few lines of Javascript.">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Samuel Gulliksson">
+<meta property="og:title" content="Creating an Audio Player Component">
+<meta property="og:url" content="/tech/2022/04/06/custom-audio-player.html">
+
+
+  <meta property="og:description" content="One element of “Transcendence: A Visionary Truth” is an audio clip (generated via speech synthesis). To make it look nicer than the default controls of each browser I created a very basic audio player with just a few lines of Javascript.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2022-04-06T00:00:00+02:00">
+
+
+
+
+
+
+<link rel="canonical" href="/tech/2022/04/06/custom-audio-player.html">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Samuel Gulliksson",
+      "url": "/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Samuel Gulliksson
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/text">Text</a>
+            </li><li class="masthead__menu-item">
+              <a href="/art">Art</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tech">Tech</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Creating an Audio Player Component">
+    <meta itemprop="description" content="One element of“Transcendence: A Visionary Truth”is an audio clip (generated via speech synthesis).To make it look nicer than thedefault controlsof each browser I created a very basic audio player with just a few lines of Javascript.">
+    <meta itemprop="datePublished" content="2022-04-06T00:00:00+02:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Creating an Audio Player Component
+</h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-04-06T00:00:00+02:00">April 6, 2022</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>One element of
+“<a href="/art/2022/02/01/transcendence.html">Transcendence: A Visionary Truth</a>”
+is an audio clip (generated via speech synthesis).
+To make it look nicer than the
+<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio">default controls</a>
+of each browser I created a very basic audio player with just a few lines of Javascript.</p>
+
+<p>The requirements were very basic:</p>
+<ul>
+  <li>it should be possible to pause and play the audio, and</li>
+  <li>it should show the progress of the audio.</li>
+</ul>
+
+<p>No need for volume controls or a fancy seek slider
+(not only due to laziness, but actually part of the listening experience – it shouldn’t be possible to skip around in the audio).</p>
+
+<p>While figuring out how to do it I stumbled upon the excellent CSS-Tricks article
+<a href="https://css-tricks.com/lets-create-a-custom-audio-player/">“Let’s Create a Custom Audio Player”</a>.
+Not only did it show how to create a custom audio player,
+it also mentioned packaging it all up as a web component…
+What a dream, reusable components finally becoming
+<a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components">a thing</a>
+for frontend development!</p>
+
+<p>Using the custom audio player is as simple as the following (but not really, see <a href="#caveats">below</a>):</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">audio</span><span class="o">-</span><span class="nx">player</span> <span class="nx">src</span><span class="o">=</span><span class="dl">"</span><span class="s2">...</span><span class="dl">"</span><span class="o">&gt;&lt;</span><span class="sr">/audio-player</span><span class="err">&gt;
+</span></code></pre></div></div>
+
+<p>and it looks like this:</p>
+
+<audio-player src="https://www.soundboard.com/mediafiles/mz/Mzg1ODMxNTIzMzg1ODM3_JzthsfvUY24.MP3"></audio-player>
+
+<p>The code can be found <a href="/art/transcendence/lib/audio-player/audio-player.js">here</a>.</p>
+
+<p>Some interesting features:</p>
+<ul>
+  <li>The progress/duration text will have the same color as surrounding text since
+<a href="https://open-wc.org/guides/knowledge/styling/styles-piercing-shadow-dom/#styling-styles-piercing-shadow-dom">shadow DOM inherits styles</a> (which includes <code class="language-plaintext highlighter-rouge">color</code>).</li>
+  <li>The color of the play/pause button can be styled separately via
+<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/::part"><code class="language-plaintext highlighter-rouge">::part</code></a> pseudo-element:
+    <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">audio-player</span><span class="nd">::part</span><span class="o">(</span><span class="nt">playbutton</span><span class="o">)</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="no">black</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="caveats">Caveats</h2>
+<p>The play button uses symbols defined in a custom font.
+To make that work, the host page must include a <code class="language-plaintext highlighter-rouge">font-face</code> definition in its styling
+(browser support for shadow trees containing <code class="language-plaintext highlighter-rouge">@font-face</code> is <a href="https://wiki.csswg.org/spec/css-scoping">very limited</a>):</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@font-face</span> <span class="p">{</span>
+    <span class="nl">font-family</span><span class="p">:</span> <span class="s2">'fontello'</span><span class="p">;</span>
+    <span class="nl">src</span><span class="p">:</span> <span class="sx">url('fontello.woff2')</span> <span class="n">format</span><span class="p">(</span><span class="s2">'woff2'</span><span class="p">),</span>
+         <span class="sx">url('fontello.woff')</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<style>
+@font-face {
+    font-family: 'fontello';
+    src: url('/art/transcendence/lib/icons/font/fontello.woff2?48840635 %}') format('woff2'),
+         url('/art/transcendence/lib/icons/font/fontello.woff?48840635 %}')
+}
+
+audio-player::part(playbutton) {
+  color: black;
+}
+</style>
+
+<script type="module" src="/art/transcendence/lib/audio-player/audio-player.js"></script>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-04-06T00:00:00+02:00">April 6, 2022</time></p>
+
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/tech/2022/04/04/vscode-extensions-for-writing.html" class="pagination--pager" title="Visual Studio Code Extensions for Writing">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://github.com/zamzterz" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 Samuel Gulliksson. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

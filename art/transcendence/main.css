@@ -90,6 +90,10 @@ section > p {
     font-size: small;
 }
 
+audio-player::part(playbutton) {
+    color: white;
+}
+
 a {
     --border-color: white;
     --border-width: 2px;

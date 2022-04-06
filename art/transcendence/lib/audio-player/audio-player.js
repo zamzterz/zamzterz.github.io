@@ -13,7 +13,6 @@ template.innerHTML = `
         border: none;
         background: transparent;
         text-decoration: none;
-        color: white;
         font-size: 45px;
         cursor: pointer;
     }
@@ -28,12 +27,12 @@ template.innerHTML = `
     }
 
   </style>
-  <link rel="stylesheet" type="text/css" href="lib/icons/css/fontello.css">
+  <link rel="stylesheet" type="text/css" href="/art/transcendence/lib/icons/css/fontello.css">
 
   <div>
     <audio preload="metadata"></audio>
     <div id="controls">
-        <button id="play"><i class="icon-play"></i></button>
+        <button id="play" part="playbutton"><i class="icon-play"></i></button>
         <span id="currentTime">0:00</span><span class="time-sep"></span><span id="duration"></span>
     </div>
   </div>
@@ -76,9 +75,9 @@ class AudioPlayer extends HTMLElement {
             playBtn.children[0].classList.toggle('icon-pause');
             if (audio.paused) {
                 audio.play();
-                this.currenTimeInterval = setInterval(updateCurrentTime, 500);
+                this.currentTimeInterval = setInterval(updateCurrentTime, 500);
             } else {
-                clearInterval(this.currenTimeInterval);
+                clearInterval(this.currentTimeInterval);
                 audio.pause();
             }
         });
@@ -92,8 +91,8 @@ class AudioPlayer extends HTMLElement {
     }
 
     disconnectedCallback() {
-        if (this.currenTimeInterval) {
-            clearInterval(this.currenTimeInterval)
+        if (this.currentTimeInterval) {
+            clearInterval(this.currentTimeInterval)
         }
     }
 }

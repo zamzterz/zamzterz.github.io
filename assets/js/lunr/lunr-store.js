@@ -76,4 +76,10 @@ var store = [{
         "tags": [],
         "url": "/tech/2022/04/04/vscode-extensions-for-writing.html",
         "teaser": null
+      },{
+        "title": "Creating an Audio Player Component",
+        "excerpt":"One element of “Transcendence: A Visionary Truth” is an audio clip (generated via speech synthesis). To make it look nicer than the default controls of each browser I created a very basic audio player with just a few lines of Javascript. The requirements were very basic: it should be possible...","categories": ["tech"],
+        "tags": [],
+        "url": "/tech/2022/04/06/custom-audio-player.html",
+        "teaser": null
       }]
