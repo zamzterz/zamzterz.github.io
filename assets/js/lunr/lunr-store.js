@@ -82,4 +82,10 @@ var store = [{
         "tags": [],
         "url": "/tech/2022/04/06/custom-audio-player.html",
         "teaser": null
+      },{
+        "title": "Using LaTeX for Story Structure",
+        "excerpt":"To visualize the plots of my fiction writing I’ve created two LaTeX packages that turns plaintext descriptions into pretty-looking graphical representations. The first package is based on Dan Harmon’s Story Circle – storycircle provides a command accepting the eight descriptions of each stage of the circle: \\documentclass{standalone} \\usepackage[T1]{fontenc} \\usepackage{storycircle} \\definecolor{descriptionfill}{HTML}{F7F7F7}...","categories": ["tech"],
+        "tags": [],
+        "url": "/tech/2022/04/23/latex-for-story-structure.html",
+        "teaser": null
       }]

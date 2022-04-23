@@ -1,0 +1,356 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Using LaTeX for Story Structure - Samuel Gulliksson</title>
+<meta name="description" content="To visualize the plots of my fiction writing I’ve created two LaTeX packages that turns plaintext descriptions into pretty-looking graphical representations.">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Samuel Gulliksson">
+<meta property="og:title" content="Using LaTeX for Story Structure">
+<meta property="og:url" content="/tech/2022/04/23/latex-for-story-structure.html">
+
+
+  <meta property="og:description" content="To visualize the plots of my fiction writing I’ve created two LaTeX packages that turns plaintext descriptions into pretty-looking graphical representations.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2022-04-23T00:00:00+02:00">
+
+
+
+
+
+
+<link rel="canonical" href="/tech/2022/04/23/latex-for-story-structure.html">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Samuel Gulliksson",
+      "url": "/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Samuel Gulliksson
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/text">Text</a>
+            </li><li class="masthead__menu-item">
+              <a href="/art">Art</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tech">Tech</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Using LaTeX for Story Structure">
+    <meta itemprop="description" content="To visualize the plots of my fiction writingI’ve created two LaTeX packagesthat turns plaintext descriptionsinto pretty-looking graphical representations.">
+    <meta itemprop="datePublished" content="2022-04-23T00:00:00+02:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Using LaTeX for Story Structure
+</h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-04-23T00:00:00+02:00">April 23, 2022</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>To visualize the plots of my fiction writing
+I’ve created two LaTeX packages
+that turns plaintext descriptions
+into pretty-looking graphical representations.</p>
+
+<p>The first package is based on
+<a href="https://en.wikipedia.org/wiki/Dan_Harmon#%22Story_circle%22_technique">Dan Harmon’s Story Circle</a> –
+<a href="/assets/files/2022-04-23-latex-for-story-structure/storycircle.sty">storycircle</a> provides a command accepting the eight descriptions of each stage of the circle:</p>
+
+<div class="example">
+
+  <div class="language-latex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\documentclass</span><span class="p">{</span>standalone<span class="p">}</span>
+<span class="k">\usepackage</span><span class="na">[T1]</span><span class="p">{</span>fontenc<span class="p">}</span>
+<span class="k">\usepackage</span><span class="p">{</span>storycircle<span class="p">}</span>
+
+<span class="k">\definecolor</span><span class="p">{</span>descriptionfill<span class="p">}{</span>HTML<span class="p">}{</span>F7F7F7<span class="p">}</span>
+<span class="k">\definecolor</span><span class="p">{</span>nodefill<span class="p">}{</span>HTML<span class="p">}{</span>299AE0<span class="p">}</span>
+<span class="k">\definecolor</span><span class="p">{</span>pathcolor<span class="p">}{</span>HTML<span class="p">}{</span>404E7C<span class="p">}</span>
+
+<span class="nt">\begin{document}</span>
+<span class="nt">\begin{tikzpicture}</span>[
+    story circle radius=4cm,
+    story circle path/.append style=<span class="p">{</span>
+        line width=2ex,
+        color=pathcolor
+    <span class="p">}</span>,
+    story circle node/.append style=<span class="p">{</span>
+        text=white,
+        fill=nodefill
+    <span class="p">}</span>,
+    description/.append style=<span class="p">{</span>
+        fill=descriptionfill
+    <span class="p">}</span>,
+    story circle radius=2.5cm
+]
+    <span class="k">\storycircle</span><span class="p">{</span><span class="c">% YOU</span>
+        A character is in a zone of comfort or familiarity.
+        <span class="p">}{</span><span class="c">% NEED</span>
+        They desire something.
+        <span class="p">}{</span><span class="c">% GO</span>
+        They enter an unfamiliar situation.
+        <span class="p">}{</span><span class="c">% SEARCH</span>
+        They adapt to that situation.
+        <span class="p">}{</span><span class="c">% FIND</span>
+        They get that which they wanted.
+        <span class="p">}{</span><span class="c">% TAKE</span>
+        They pay a heavy price for it.
+        <span class="p">}{</span><span class="c">% RETURN</span>
+        They return to their familiar situation.
+        <span class="p">}{</span><span class="c">% CHANGE</span>
+        They have changed as a result of the journey.
+        <span class="p">}</span>
+<span class="nt">\end{tikzpicture}</span>
+<span class="nt">\end{document}</span>
+</code></pre></div>  </div>
+
+  <p><img src="/assets/files/2022-04-23-latex-for-story-structure/storycircle.png" alt="Example of story circle" class="center" /></p>
+</div>
+
+<p>I’ve also found a vertical timeline to be really helpful
+to get an overview of the events in a story –
+<a href="/assets/files/2022-04-23-latex-for-story-structure/vtimeline.sty">vtimeline</a> does exactly that:</p>
+
+<div class="example">
+
+  <div class="language-latex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\documentclass</span><span class="na">[x11names]</span><span class="p">{</span>standalone<span class="p">}</span>
+<span class="k">\usepackage</span><span class="p">{</span>vtimeline<span class="p">}</span>
+
+<span class="k">\definecolor</span><span class="p">{</span>timeline<span class="p">}{</span>HTML<span class="p">}{</span>299AE0<span class="p">}</span>
+
+<span class="nt">\begin{document}</span>
+<span class="nt">\begin{vtimeline}</span>[<span class="c">%</span>
+description=<span class="p">{</span>text width=8cm<span class="p">}</span>,
+row sep=2ex,
+timeline color=timeline]
+19 July 1953 <span class="p">&amp;</span> Someone is born.<span class="k">\\</span>
+26 March 1960 <span class="p">&amp;</span> Someone else is born.<span class="k">\\</span>
+<span class="k">\elapsedtime\\</span>
+1966 <span class="p">&amp;</span> They meet.<span class="k">\\</span>
+1974 <span class="p">&amp;</span> They have a fight.<span class="k">\\</span>
+<span class="k">\withoutdate</span><span class="p">{</span>Things escalate.<span class="p">}</span><span class="k">\\</span>
+<span class="k">\withoutdate</span><span class="p">{</span>More events unfold.<span class="p">}</span><span class="k">\\</span>
+<span class="k">\withoutdate</span><span class="p">{</span>One or the other dies.<span class="p">}</span><span class="k">\\</span>
+<span class="nt">\end{vtimeline}</span>
+<span class="nt">\end{document}</span>
+</code></pre></div>  </div>
+
+  <p><img src="/assets/files/2022-04-23-latex-for-story-structure/timeline.png" alt="Example of timeline" class="center" /></p>
+</div>
+
+<style>
+    .example {
+        display: flex;
+        align-items: center;
+    }
+
+    .example .language-latex {
+        width: 50%;
+    }
+</style>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-04-23T00:00:00+02:00">April 23, 2022</time></p>
+
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/tech/2022/04/06/custom-audio-player.html" class="pagination--pager" title="Creating an Audio Player Component">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://github.com/zamzterz" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 Samuel Gulliksson. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

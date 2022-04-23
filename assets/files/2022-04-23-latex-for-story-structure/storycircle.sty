@@ -1,0 +1,69 @@
+\ProvidesPackage{storycircle}[2022/03/05 Story Circle]
+\RequirePackage{environ,tikz}
+\usetikzlibrary{positioning,arrows.meta}
+
+\definecolor{nodefill}{HTML}{A2CD5A}
+\definecolor{descriptionfill}{HTML}{EEE9E9}
+\definecolor{pathcolor}{HTML}{FFB90F}
+
+\tikzset{
+    story circle radius/.store in=\scradius,
+    story circle radius=4cm,
+    description/.append style={text width=4cm,
+        node distance=0.5cm,
+        align=center,
+        shape=rectangle,
+        rounded corners,
+        fill=descriptionfill
+    },
+    story circle path/.style={
+        -Triangle Cap,
+        line width=1ex,
+        color=pathcolor
+    },
+    story circle node/.style={
+        circle,
+        fill=nodefill,
+        text=white,
+        outer sep=1mm
+    }
+}
+
+\newcommand\storycircle[8]{
+    \foreach \a in {1,2,...,8}{
+        \pgfmathtruncatemacro\angle{135 - \a*45}
+        \draw (\angle: \scradius) node[story circle node] (\a) {\a};
+    }
+
+    \begin{scope}[every node/.append style={description}]
+        \node[above = of 1] (you) {\centering\textsc{\textbf{You}}\\#1};
+        \node[above right = of 2] (need) {\centering\textsc{\textbf{Need}}\\#2};
+        \node[right = of 3] (go) {\centering\textsc{\textbf{Go}}\\#3};
+        \node[below right = of 4] (search) {\centering\textsc{\textbf{Search}}\\#4};
+        \node[below = of 5] (find) {\centering\textsc{\textbf{Find}}\\#5};
+        \node[below left = of 6] (take) {\centering\textsc{\textbf{Take}}\\#6};
+        \node[left = of 7] (return) {\centering\textsc{\textbf{Return}}\\#7};
+        \node[above left = of 8] (change) {\centering\textsc{\textbf{Change}}\\#8};
+    \end{scope}
+
+    \path[story circle path, bend left=15]
+        (1) edge node {} (2)
+        (2) edge node {} (3)
+        (3) edge node {} (4)
+        (4) edge node {} (5)
+        (5) edge node {} (6)
+        (6) edge node {} (7)
+        (7) edge node {} (8)
+        (8) edge node {} (1);
+
+    \draw (1)--(you);
+    \draw (2)--(need);
+    \draw (3)--(go);
+    \draw (4)--(search);
+    \draw (5)--(find);
+    \draw (6)--(take);
+    \draw (7)--(return);
+    \draw (8)--(change);
+}
+
+\endinput

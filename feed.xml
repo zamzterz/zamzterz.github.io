@@ -1,4 +1,103 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2022-04-06T18:18:58+02:00</updated><id>/feed.xml</id><title type="html">Samuel Gulliksson</title><entry><title type="html">Creating an Audio Player Component</title><link href="/tech/2022/04/06/custom-audio-player.html" rel="alternate" type="text/html" title="Creating an Audio Player Component" /><published>2022-04-06T00:00:00+02:00</published><updated>2022-04-06T00:00:00+02:00</updated><id>/tech/2022/04/06/custom-audio-player</id><content type="html" xml:base="/tech/2022/04/06/custom-audio-player.html">&lt;p&gt;One element of
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2022-04-23T19:08:07+02:00</updated><id>/feed.xml</id><title type="html">Samuel Gulliksson</title><entry><title type="html">Using LaTeX for Story Structure</title><link href="/tech/2022/04/23/latex-for-story-structure.html" rel="alternate" type="text/html" title="Using LaTeX for Story Structure" /><published>2022-04-23T00:00:00+02:00</published><updated>2022-04-23T00:00:00+02:00</updated><id>/tech/2022/04/23/latex-for-story-structure</id><content type="html" xml:base="/tech/2022/04/23/latex-for-story-structure.html">&lt;p&gt;To visualize the plots of my fiction writing
+I’ve created two LaTeX packages
+that turns plaintext descriptions
+into pretty-looking graphical representations.&lt;/p&gt;
+
+&lt;p&gt;The first package is based on
+&lt;a href=&quot;https://en.wikipedia.org/wiki/Dan_Harmon#%22Story_circle%22_technique&quot;&gt;Dan Harmon’s Story Circle&lt;/a&gt; –
+&lt;a href=&quot;/assets/files/2022-04-23-latex-for-story-structure/storycircle.sty&quot;&gt;storycircle&lt;/a&gt; provides a command accepting the eight descriptions of each stage of the circle:&lt;/p&gt;
+
+&lt;div class=&quot;example&quot;&gt;
+
+  &lt;div class=&quot;language-latex highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;\documentclass&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;standalone&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;\usepackage&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[T1]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;fontenc&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;\usepackage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;storycircle&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;\definecolor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;descriptionfill&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;HTML&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;F7F7F7&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;\definecolor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;nodefill&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;HTML&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;299AE0&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;\definecolor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;pathcolor&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;HTML&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;404E7C&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;\begin{document}&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;\begin{tikzpicture}&lt;/span&gt;[
+    story circle radius=4cm,
+    story circle path/.append style=&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        line width=2ex,
+        color=pathcolor
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;,
+    story circle node/.append style=&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        text=white,
+        fill=nodefill
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;,
+    description/.append style=&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        fill=descriptionfill
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;,
+    story circle radius=2.5cm
+]
+    &lt;span class=&quot;k&quot;&gt;\storycircle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;% YOU&lt;/span&gt;
+        A character is in a zone of comfort or familiarity.
+        &lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;% NEED&lt;/span&gt;
+        They desire something.
+        &lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;% GO&lt;/span&gt;
+        They enter an unfamiliar situation.
+        &lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;% SEARCH&lt;/span&gt;
+        They adapt to that situation.
+        &lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;% FIND&lt;/span&gt;
+        They get that which they wanted.
+        &lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;% TAKE&lt;/span&gt;
+        They pay a heavy price for it.
+        &lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;% RETURN&lt;/span&gt;
+        They return to their familiar situation.
+        &lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;% CHANGE&lt;/span&gt;
+        They have changed as a result of the journey.
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;\end{tikzpicture}&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;\end{document}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
+
+  &lt;p&gt;&lt;img src=&quot;/assets/files/2022-04-23-latex-for-story-structure/storycircle.png&quot; alt=&quot;Example of story circle&quot; class=&quot;center&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;I’ve also found a vertical timeline to be really helpful
+to get an overview of the events in a story –
+&lt;a href=&quot;/assets/files/2022-04-23-latex-for-story-structure/vtimeline.sty&quot;&gt;vtimeline&lt;/a&gt; does exactly that:&lt;/p&gt;
+
+&lt;div class=&quot;example&quot;&gt;
+
+  &lt;div class=&quot;language-latex highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;\documentclass&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[x11names]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;standalone&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;\usepackage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;vtimeline&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;\definecolor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;timeline&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;HTML&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;299AE0&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;\begin{document}&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;\begin{vtimeline}&lt;/span&gt;[&lt;span class=&quot;c&quot;&gt;%&lt;/span&gt;
+description=&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;text width=8cm&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;,
+row sep=2ex,
+timeline color=timeline]
+19 July 1953 &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; Someone is born.&lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt;
+26 March 1960 &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; Someone else is born.&lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;\elapsedtime\\&lt;/span&gt;
+1966 &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; They meet.&lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt;
+1974 &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; They have a fight.&lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;\withoutdate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;Things escalate.&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;\withoutdate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;More events unfold.&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;\withoutdate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;One or the other dies.&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;\end{vtimeline}&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;\end{document}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
+
+  &lt;p&gt;&lt;img src=&quot;/assets/files/2022-04-23-latex-for-story-structure/timeline.png&quot; alt=&quot;Example of timeline&quot; class=&quot;center&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+    .example {
+        display: flex;
+        align-items: center;
+    }
+
+    .example .language-latex {
+        width: 50%;
+    }
+&lt;/style&gt;</content><author><name>Samuel Gulliksson</name></author><category term="tech" /><summary type="html">To visualize the plots of my fiction writing I’ve created two LaTeX packages that turns plaintext descriptions into pretty-looking graphical representations.</summary></entry><entry><title type="html">Creating an Audio Player Component</title><link href="/tech/2022/04/06/custom-audio-player.html" rel="alternate" type="text/html" title="Creating an Audio Player Component" /><published>2022-04-06T00:00:00+02:00</published><updated>2022-04-06T00:00:00+02:00</updated><id>/tech/2022/04/06/custom-audio-player</id><content type="html" xml:base="/tech/2022/04/06/custom-audio-player.html">&lt;p&gt;One element of
 “&lt;a href=&quot;/art/2022/02/01/transcendence.html&quot;&gt;Transcendence: A Visionary Truth&lt;/a&gt;”
 is an audio clip (generated via speech synthesis).
 To make it look nicer than the
@@ -50,17 +149,17 @@ for frontend development!&lt;/p&gt;
 To make that work, the host page must include a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;font-face&lt;/code&gt; definition in its styling
 (browser support for shadow trees containing &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@font-face&lt;/code&gt; is &lt;a href=&quot;https://wiki.csswg.org/spec/css-scoping&quot;&gt;very limited&lt;/a&gt;):&lt;/p&gt;
 &lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;@font-face&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nl&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;'fontello'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;nl&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;url('fontello.woff2')&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;'woff2'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
-         &lt;span class=&quot;sx&quot;&gt;url('fontello.woff')&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&apos;fontello&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;url(&apos;fontello.woff2&apos;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&apos;woff2&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+         &lt;span class=&quot;sx&quot;&gt;url(&apos;fontello.woff&apos;)&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;style&gt;
 @font-face {
-    font-family: 'fontello';
-    src: url('/art/transcendence/lib/icons/font/fontello.woff2?48840635 %}') format('woff2'),
-         url('/art/transcendence/lib/icons/font/fontello.woff?48840635 %}')
+    font-family: &apos;fontello&apos;;
+    src: url(&apos;/art/transcendence/lib/icons/font/fontello.woff2?48840635 %}&apos;) format(&apos;woff2&apos;),
+         url(&apos;/art/transcendence/lib/icons/font/fontello.woff?48840635 %}&apos;)
 }
 
 audio-player::part(playbutton) {
@@ -261,43 +360,4 @@ it required multiple clicks on the browser back button, one for each embedded if
 &lt;p&gt;The solution is to use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;frame&amp;gt;.contentWindow.location.replace(url)&lt;/code&gt;
 instead of assigning directly to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;frame&amp;gt;.src = url&lt;/code&gt;.
 I’ve contributed &lt;a href=&quot;https://github.com/yetanother-blog/indiepen/pull/121&quot;&gt;a fix&lt;/a&gt;
-which has been merged. 🎉&lt;/p&gt;</content><author><name>Samuel Gulliksson</name></author><category term="tech" /><category term="open-source" /><summary type="html">This blog uses Indiepen for code examples. It was working fine in Chrome, but testing in Firefox showed something strange when navigating to this post: clicking the back button didn’t seem to have any effect. Not until after repeated clicks on the back button would the browser navigate back to a previous page.</summary></entry><entry><title type="html">Using Indiepen for embedded code examples</title><link href="/tech/2021/12/11/indiepen.html" rel="alternate" type="text/html" title="Using Indiepen for embedded code examples" /><published>2021-12-11T00:00:00+01:00</published><updated>2021-12-11T00:00:00+01:00</updated><id>/tech/2021/12/11/indiepen</id><content type="html" xml:base="/tech/2021/12/11/indiepen.html">&lt;p&gt;While documenting the
-&lt;a href=&quot;/tech/2021/12/01/moving-poetry.html&quot;&gt;technical details of the “Moving poetry” project&lt;/a&gt;
-I needed to include structured code examples that would also be rendered to show the described results.
-Many hosted alternatives exist,
-like &lt;a href=&quot;https://codepen.io/&quot;&gt;Codepen&lt;/a&gt; and &lt;a href=&quot;https://jsfiddle.net/&quot;&gt;JSFiddle&lt;/a&gt;,
-but I wanted to host the files myself (to be able to version them same as the rest of this blog, etc.),
-and not have to sign up for yet another service.&lt;/p&gt;
-
-&lt;p&gt;That’s when I stumbled upon &lt;a href=&quot;https://indiepen.tech/&quot;&gt;Indiepen&lt;/a&gt;, which judging by its description
-sounded like the perfect fit:&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;An independent and privacy-friendly solution to present your code examples to the people.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;After a quick look I found it to have a nice responsive design that looks great,
-and the
-&lt;a href=&quot;https://www.smashingmagazine.com/2021/08/cookieless-alternative-embed-html-css-js-code-examples/&quot;&gt;privacy-friendliness&lt;/a&gt;
-is definitely something I’m all for!&lt;/p&gt;
-
-&lt;p&gt;To use Indiepen, you simply need to host the code example files (HTML, CSS and JavaScript) somewhere
-and provide the URL for Indiepen to present them together with a preview.
-Only one problem: Indiepen is yet another hosted service that would introduce a dependency
-as described in this &lt;a href=&quot;https://github.com/yetanother-blog/indiepen/issues/73&quot;&gt;Github issue&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Since Indiepen is open source with a permissive MIT license I decided to see if I could
-make a build of it that could be self-hosted on this blog.
-What I ended up with was something even better: a self-contained single HTML file that can be hosted and included anywhere,
-removing the need to host the full web service of Indiepen.&lt;/p&gt;
-
-&lt;p&gt;The necessary changes to build such a file are described
-&lt;a href=&quot;https://github.com/yetanother-blog/indiepen/issues/73#issuecomment-970080949&quot;&gt;here&lt;/a&gt;,
-and the setup for this blog now includes a copy of the
-&lt;a href=&quot;https://github.com/zamzterz/zamzterz.github.io/blob/ac43caa9d88c51128ce8fcc4e03685535fe12765/code-examples/index.html&quot;&gt;Indiepen HTML file&lt;/a&gt;.
-For example in the &lt;a href=&quot;/tech/2021/12/01/moving-poetry.html#opacity&quot;&gt;“Moving poetry” post&lt;/a&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;iframe&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/code-examples/index.html?url=/code-examples/2021-12-01-moving-poetry/opacity/basic&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;loading=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;lazy&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;100%&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;250&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/iframe&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;which renders as&lt;/p&gt;
-&lt;iframe src=&quot;/code-examples/index.html?url=/code-examples/2021-12-01-moving-poetry/opacity/basic&quot; loading=&quot;lazy&quot; width=&quot;100%&quot; height=&quot;250&quot;&gt;&lt;/iframe&gt;</content><author><name>Samuel Gulliksson</name></author><category term="tech" /><category term="open-source" /><summary type="html">While documenting the technical details of the “Moving poetry” project I needed to include structured code examples that would also be rendered to show the described results. Many hosted alternatives exist, like Codepen and JSFiddle, but I wanted to host the files myself (to be able to version them same as the rest of this blog, etc.), and not have to sign up for yet another service.</summary></entry></feed>
+which has been merged. 🎉&lt;/p&gt;</content><author><name>Samuel Gulliksson</name></author><category term="tech" /><category term="open-source" /><summary type="html">This blog uses Indiepen for code examples. It was working fine in Chrome, but testing in Firefox showed something strange when navigating to this post: clicking the back button didn’t seem to have any effect. Not until after repeated clicks on the back button would the browser navigate back to a previous page.</summary></entry></feed>

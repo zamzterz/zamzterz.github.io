@@ -1700,6 +1700,11 @@ body { display: -webkit-box; display: -ms-flexbox; display: flex; min-height: 10
 
 .single-post .post-more-link { float: right; }
 
+/* utility class to center for example <img> */
+.center { display: block; margin: 0 auto; }
+
+.highlight { max-height: 400px; overflow-y: auto; font-size: 0.90em; }
+
 .archive-container { display: flex; flex-direction: column; align-items: center; }
 
 .archive-container ul { list-style: none; }

@@ -1,0 +1,90 @@
+\ProvidesPackage{vtimeline}[2022/03/02 Vertical Timeline]
+\RequirePackage{environ,charter,tikz}
+\usetikzlibrary{calc,matrix,decorations.pathmorphing}
+
+%% Code by Claudio:
+%% https://tex.stackexchange.com/a/197447/221452
+%% Uses code by Andrew:
+%% http://tex.stackexchange.com/a/28452/13304
+\let\matamp=&
+\catcode`\&=13
+\def&{%
+    \iftikz@is@matrix%
+        \pgfmatrixnextcell%
+    \else%
+        \matamp%
+    \fi%
+}
+\makeatletter
+% from https://tex.stackexchange.com/a/37713
+\long\def\ifnodedefined#1#2#3{%
+    \@ifundefined{pgf@sh@ns@#1}{#3}{#2}%
+}
+\makeatother
+
+\newcounter{vtml}
+\setcounter{vtml}{0}
+
+\tikzset{
+    description/.style={column 2/.append style={#1}},
+    timeline color/.store in=\vtmlcolor,
+    timeline color=red!80!black,
+    timeline color st/.style={fill=\vtmlcolor,draw=\vtmlcolor},
+    execute at end matrix={\xdef\lines{\the\pgfmatrixcurrentrow}},
+    timejump/.style={fill=none, decorate, decoration={zigzag, post length=2mm, pre length=2mm}}
+}
+
+\NewEnviron{vtimeline}[1][]{%
+    \stepcounter{vtml}%
+    \begin{tikzpicture}[column 1/.style={anchor=east},
+        column 2/.style={anchor=west},
+        text height=1ex,
+        row sep=1ex,
+        column sep=1em,
+        #1
+    ]
+        \matrix(vtimeline\thevtml)[matrix of nodes]{\BODY};
+
+        % horizontal marks
+        \foreach \x in {1,...,\lines}{
+            \ifnodedefined{vtimeline\thevtml-\x-2}{ % only for existing nodes
+                % dot mark
+                \node[circle, timeline color st, inner sep=0.15pt, draw=white, thick]
+                (vtimeline\thevtml-c-\x) at
+                ($(vtimeline\thevtml-\x-1.east)!0.5!(vtimeline\thevtml-\x-2.west)$){};
+                % tick mark
+                \draw[timeline color st](vtimeline\thevtml-c-\x.west)--++(-3pt,0);
+            }{}
+        }
+
+        % vertical timeline
+        \path[timeline color st]
+            ($(vtimeline\thevtml-1-1.north east)!0.5!(vtimeline\thevtml-1-2.north west)$)--
+            (vtimeline\thevtml-c-1.center);
+        \path[timeline color st]
+            (vtimeline\thevtml-c-\lines.center)--
+            ($(vtimeline\thevtml-\lines-1.south east)!0.5!(vtimeline\thevtml-\lines-2.south west)$);
+        \pgfmathtruncatemacro\last{\lines-1}
+        \foreach \x in {1,...,\last}{
+            \pgfmathtruncatemacro\next{\x+1}
+            \ifnodedefined{vtimeline\thevtml-\x-1}{
+                \ifnodedefined{vtimeline\thevtml-\next-1}{
+                    % segments for existing nodes
+                    \path[timeline color st]
+                    (vtimeline\thevtml-c-\x.south)--(vtimeline\thevtml-c-\next.north);
+                }{}
+            }{
+                % zigzag for non-existing nodes signifying time lapses
+                \pgfmathtruncatemacro\prev{\x-1}
+                \pgfmathtruncatemacro\next{\x+1}
+                \path[timeline color st, timejump]
+                (vtimeline\thevtml-c-\prev.south)--(vtimeline\thevtml-c-\next.north);
+            }
+        }
+    \end{tikzpicture}
+}
+
+\newcommand{\elapsedtime}{&} % empty row which will be rendered with zigzag line
+\newcommand{\withoutdate}[1]{\phantom{-} & #1}
+
+\endinput
