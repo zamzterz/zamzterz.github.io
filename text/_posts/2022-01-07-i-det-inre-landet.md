@@ -8,8 +8,8 @@ flyter älven förbi \
 det klara vattnet
 
 lämnar mig kall \
-med skälvande tänder \
-frusna händer
+på frusna stränder \
+med skälvande händer
 
 vinkar vi skimrande \
 adjö till modern \
